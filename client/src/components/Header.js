@@ -5,7 +5,9 @@ export default function Header() {
     return (
         <header className='header bg-primary px-5 pt-2 pb-5 text-white'>
             <div className='header-nav-container-1 container-fluid d-flex justify-content-between'>
-                <h4 className='text-white'>Spartans Safaris</h4>
+                <h4 className='text-white'>
+                    <NavLink to='/' exact className='text-white home_link'>Spartans Safaris</NavLink>
+                </h4>
                 <div className='header-nav_1 d-flex gap-5'>
                     <h5>KES</h5>
                     <p>FLAG</p>
@@ -29,7 +31,8 @@ export default function Header() {
             </div>
             <div className='search_form'>
                 <form>
-                    
+                    <input typeof='text'></input>
+                    <input type='submit'></input>                    
                 </form>
             </div>
         </header>
