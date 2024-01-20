@@ -2,26 +2,93 @@
 	box-sizing: border-box;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+html{
+	scroll-behavior: smooth;
+}
 body {
   	margin: 0;
 }
 
+::-webkit-scrollbar{
+    width: 11px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(0, 175, 250);
+    border-radius: 5px;
+}
+
+div.cursor1{
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(0, 175, 250);
+    border-radius: 50%;
+  
+    transform: translate(-50%, -50%);
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  
+    pointer-events: none;
+    transition: all 0.04s;
+}
+  
+div.cursor2{
+    width: 5px;
+    height: 5px;
+    background-color: rgb(0, 175, 250);
+    border-radius: 50%;
+  
+    transform: translate(-50%, -50%);
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  
+    pointer-events: none;
+    transition: all 0.04s;
+}
 /* HEADER */
-/* header{
-	height: 30vh;
-} */
+header{
+	background-color: rgb(20, 0, 100);
+	position: relative;
+}
+.spartans_span{
+	font-family: 'Caveat', cursive;
+	font-size: 35px;
+}
+.safaris_span{
+	font-family: 'Caveat', cursive;
+	font-size: 35px;
+	color:rgb(250, 20, 70);
+}
 header .home_link{
 	text-decoration: none;
 }
 header .nav_links_2{
+	color: white;
 	padding: 7px;
 	margin: 0;
+	font-weight: 600;
 
 	border-radius: 1000px;
 }
 
+header .language_img, .support_img{
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
 header .header-nav-container-2 .active{
-	background-color: rgb(10, 20, 120);
+	background-color: rgb(250, 20, 70);
+}
+
+.profile_img{
+	width: 25px;
 }
 
 .nav_links_2{
@@ -32,8 +99,8 @@ header .header-nav-container-2 .active{
 .nav_links_2::after{
 	content: "";
 	width: 0;
-	height: 5px;
-	background-color: rgb(10, 20, 120);
+	height: 2px;
+	background-color: rgb(250, 20, 70);
 
 	position: absolute;
 	top: 80%;
@@ -48,18 +115,80 @@ header .header-nav-container-2 .active{
 
 .nav_links_info p{
 	letter-spacing: 1px;
-	word-spacing: 1.5px;
-	font-size: 20px;
+	word-spacing: 1px;
+	font-size: 19px;
 }
 
-/* USER_LOG */
-/* div.account_div{
-	background: powderblue;
-} */
+.search_form{
+	background-color: rgb(20, 0, 100);
+	border: 2px solid transparent;
+	border-radius: 1000px;
 
+	position: absolute;
+	top: 88%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.search_form form input[type="text"]:focus{
+	outline: none;
+}
+
+/* MAIN */
+/* main{
+	height: 500px;
+} */
+main h3{
+	color: rgb(20, 0, 100);
+	font-weight: bold;
+}
+.hot_deal_card img{
+	width: 250px;
+	height: 250px;
+	border-radius: 10px 10px 0 0;
+	object-fit: cover;
+}
+
+main .app_subscribe{
+	display: grid;
+	grid-template-columns: 30% 36% 30%;
+	gap: 10px;
+	justify-content: center;
+}
+
+main .qr_code_div{
+	display: grid;
+	justify-content: center;
+}
+main .qr_code_div h6{
+	text-align: center;
+}
+
+input.newsletter_mail_submit{
+	color: white;
+	background-color: rgb(250, 20, 70);
+	border: 2px solid rgb(250, 20, 70);
+	border-radius: 0 6px 6px 0;
+}
+
+
+
+/* USER_LOG */
 form.log_form{
-	background-color: powderblue;
-	width: 50vw;
+	background-color: rgb(20, 0, 100);
+	border-radius: 15px;
+	width: 60vw;
+}
+
+.log_form input{
+	width: 25vw;
+	height: 31px;
+	padding-left: 10px;
+	border: none;
+	border-radius: 6px;
+}
+
+.log_form input:focus{
+	outline: none;
 }
 
 .log_inputs_div{
@@ -68,8 +197,65 @@ form.log_form{
 
 .log_labels{
 	position: absolute;
+	top: 50%;
 	left: 6%;
 	padding: 0px 7px;
+	cursor: auto;
+	transform: translate(0, -50%);
 
+	transition: all 0.5s;
+}
+
+.password_div{
+	position: relative;
+}
+.password_div img{
+	width: 25px;
+	position: absolute;
+	top: 50%;
+	left: 85%;
+	transform: translateY(-50%);
+}
+
+.log_form input[type="submit"]{
+	color: white;
+	letter-spacing: 1.2px;
+	font-weight: bold;
+	background-color: rgb(8, 191, 133);
+	width: 20vw;
+	border: none;
 	transition: all 0.4s;
+}
+.log_form input[type="submit"]:hover{
+	transform: scale(1.1);
+}
+
+/* FOOTER */
+footer{
+	background-color: rgb(20, 0, 100);
+	bottom: 0;
+}
+footer .home_link{
+	text-decoration: none;
+}
+
+footer ul{
+	list-style-type: none;
+}
+footer ul li{
+	padding: 0;
+	margin: 0;
+}
+footer ul a{
+	text-decoration: none;
+	color: white;
+}
+
+footer div.copyright{
+	color: white;
+	background-color: rgb(250, 20, 70);
+	width: 100%;
+}
+footer div.copyright p{
+	font-size: 14px;
 }
