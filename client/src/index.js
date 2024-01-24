@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import MouseMove from './components/MouseMove';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<BrowserRouter>
 		<React.StrictMode>
 			<App />
+			<MouseMove></MouseMove>
 		</React.StrictMode>
 	</BrowserRouter>
 );
