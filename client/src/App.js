@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, createContext} from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import './App.css';
+import { useNavigate } from 'react-router-dom';
+export const SafarisContext = React.createContext();
 
 function App() {
-	document.cookie = "name=Gad Ongoro";
+	let navigate = useNavigate()
+	let [signedIn, setSignedIn] = useState();
 	let [bookings] = useState(0);
 	let [vacations, setVacations] = useState([]);
 	let [accommodations, setAccommodations] = useState([])
@@ -33,9 +36,11 @@ function App() {
 
   	return (
     	<div className="App">
-			<Header bookings = {bookings}></Header>
-			<Main vacations = {vacations} accommodations = {accommodations} setAccommodations = {setAccommodations}></Main>
-			<Footer></Footer>
+			<SafarisContext.Provider value={{signedIn, setSignedIn}}>
+				<Header bookings = {bookings}></Header>
+				<Main vacations = {vacations} accommodations = {accommodations} setAccommodations = {setAccommodations}></Main>
+				<Footer></Footer>
+			</SafarisContext.Provider>
     	</div>
  	);
 }
