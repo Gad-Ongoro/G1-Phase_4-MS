@@ -73,12 +73,38 @@ with app.app_context():
 with app.app_context():
     new_newsletter_mail = Newsletter_Mail()
     
-# with app.app_context():
-#     new_booking = Booking()
+# 5 Bookings
+with app.app_context():
+    Booking.query.delete()
+    for i in range(0, 10):
+        new_booking = Booking(
+            booked_at = dt,
+            check_in = dt,
+            check_out = dt,
+            customer_id = ri(0, 10),
+            vacation_id = ri(0, 12),
+            accommodation_id = ri(0, 13)
+        )
+        db.session.add(new_booking)
+        db.session.commit()
     
-# with app.app_context():
-#     new_review = Review()
+# 6 Reviews
+with app.app_context():
+    Review.query.delete()
+    for i in range(0, 15):
+        new_review = Review(
+            rating = ri(4, 10),
+            description = fake.sentence(),
+            created_at = dt,
+            updated_at = dt,
+            customer_id = ri(0, 10),
+            vacation_id = ri(0, 10),
+            accommodation_id = ri(0, 15)
+        )
+        db.session.add(new_review)
+        db.session.commit()
     
+# 7 Vacations
 with app.app_context():
     Vacation.query.delete()
     locations = ['Diani Beach', 'Cape Town', 'Mombasa', 'Nairobi', 'Egypt', 'Nyali', 'Naivasha', 'Zanzibar', 'Kisumu', 'Maldives', 'Dubai']
@@ -98,19 +124,23 @@ with app.app_context():
         'https://viutravel-cms-bucket.s3.eu-west-1.amazonaws.com/122/conversions/rsz-Romantic-Thumb-%282%29-thumbnail.webp'
         
     ]
+    
+    ratings = ['★★★★★', '★★★★', '★★★', '★★']
+    
     for image in vacay_image:
         new_vacay = Vacation(
             thumbnail = image,
             name = fake.company(),
             location = rc(locations),
             price = ri(3000, 10000),
-            rating = ri(4, 10),
+            rating = rc(ratings),
             preview = fake.sentence(),
             owner_id = ri(1, 20)
         )
         db.session.add(new_vacay)
         db.session.commit()
-    
+        
+# 8 Accommodations 
 with app.app_context():
     Accommodation.query.delete()
     hotel_image = [
@@ -122,17 +152,24 @@ with app.app_context():
         'https://cf.bstatic.com/xdata/images/hotel/square600/223982344.webp?k=cae081dd9b90ff87cf71f04f468cfbf93e8cb0f3ef0ce2c9e6e839ed22d05878&o=',
         'https://cf.bstatic.com/xdata/images/hotel/square600/110853464.webp?k=0acf9ef0e2fa0407802c6fa8617a23556b62ed02dbba127c2d3dd6b344407fd1&o=',
         'https://cf.bstatic.com/xdata/images/hotel/square600/77904671.webp?k=61378d2ce2c4cdcb32929f8ab6b13463d1dffa03ead1e44d67c003002736bde1&o=',
-        'https://cf.bstatic.com/xdata/images/hotel/square600/495737164.webp?k=103c2b2537f53a332d4de75dd08e36a04a2053b1fc4b6b652da98681e73f5977&o='
+        'https://cf.bstatic.com/xdata/images/hotel/square600/495737164.webp?k=103c2b2537f53a332d4de75dd08e36a04a2053b1fc4b6b652da98681e73f5977&o=',
+        'https://cf.bstatic.com/xdata/images/hotel/square600/265347567.webp?k=966f5d9a0771713c1484c52909aa62fe8fbfdab005a3c682bf23e5ef4afb26ea&o=',
+        'https://cf.bstatic.com/xdata/images/hotel/square600/443263557.webp?k=5a0decae1c258459e3802f7d03145f11c8cb9b109fa9e0dc668151ee34fcde83&o=',
+        'https://cf.bstatic.com/xdata/images/hotel/square600/278600871.webp?k=01b375b5e89aa6f79b41b229e02231bf8b85ffe81098025f56f0de6d37429c66&o=',
+        'https://cf.bstatic.com/xdata/images/hotel/square600/55242416.webp?k=b9bd7472a37e2d1238087e29bfe2d6858ec93a7f82319e2f3851b87ce44551b6&o='
         
     ]
     locations = ['Diani Beach', 'Cape Town', 'Mombasa', 'Nairobi', 'Egypt', 'Nyali', 'Naivasha', 'Zanzibar', 'Kisumu', 'Maldives', 'Dubai']
+    
+    ratings = ['★★★★★', '★★★★', '★★★', '★★']
+    
     for image in hotel_image:
         new_accommodation = Accommodation(
             thumbnail = image,
             name = fake.company(),
             location = rc(locations),
             price = ri(3000, 10000),
-            rating = ri(4, 10),
+            rating = ri(5, 10),
             preview = fake.sentence(),
             owner_id = ri(1, 20)
         )
