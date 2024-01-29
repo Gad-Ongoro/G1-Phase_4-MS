@@ -264,6 +264,55 @@ main h3{
 	object-fit: cover;
 }
 
+/* Accomodation.jsx */
+.accommodation_card{
+	width: 70%;
+}
+
+.accommodation_card .accommodation_thumbnail{
+	width: 100%;
+	height: 50vh;
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+.accommodation_location{
+	position: relative;
+}
+.accommodation_location_img{
+	width: 23px;
+	height: 23px;
+	object-fit: cover;
+
+	position: absolute;
+	top: 50%;
+	left: 70%;
+	transform: translateY(-50%);
+}
+
+.top_accommodation_location_img{
+	width: 23px;
+	height: 23px;
+	object-fit: cover;
+
+	position: absolute;
+	top: 50%;
+	left: -10%;
+	transform: translateY(-50%);
+}
+
+.accommodation_card .edit-btn{
+	width: 23px;
+	height: 23px;
+	object-fit: cover;
+}
+
+.accommodation_card .delete-btn{
+	width: 23px;
+	height: 23px;
+	object-fit: cover;
+}
+
 main .app_subscribe{
 	display: grid;
 	grid-template-columns: 30% 36% 30%;
@@ -359,6 +408,11 @@ form.log_form{
 }
 .log_form input[type="submit"]:hover{
 	transform: scale(1.1);
+}
+
+.log_p span{
+	color: rgb(250, 20, 70);
+	text-decoration: none;
 }
 
 /* FOOTER */
