@@ -16,4 +16,6 @@ Tours & Travel Application
 
 
 ## DB Diagram
+https://dbdiagram.io/d/safaris-65a98f83ac844320ae3c111f
+
 ![Alt text](Spartans_Safaris_DB_diagram.png)
