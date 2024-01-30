@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import TopAccommodations from './TopAccommodations';
+import FilterHotelByLocation from './FilterHotelByLocation';
 
 export default function Accommodations({accommodations, setAccommodations}) {
 	// let [new_hotel_name, setNewHotelName] = useState({})
@@ -6,11 +9,11 @@ export default function Accommodations({accommodations, setAccommodations}) {
 	let accommodation_cards = accommodations.map((accommodation) => {
 		return(
 			<div className='safari_card mt-2' key={accommodation.accommodation_id}>
-				<img src={accommodation.thumbnail} className='accommodation_thumbnail' alt='NA'></img>
+				<img src={accommodation.thumbnail} className='accommodation_thumbnail' alt='NA'></img>				
 				<p>{accommodation.name}</p>
 				<p>{accommodation.location}</p>
 				<p>From Kes: {accommodation.price}</p>
-				<p>Rating: {accommodation.rating}</p>
+				<p>{accommodation.rating}</p>
 
 				<img
 				className='edit-btn'
@@ -52,15 +55,29 @@ export default function Accommodations({accommodations, setAccommodations}) {
 				alt='NA'>
 				</img>
 
-				<button className='d-block'>Book Now</button>
+				<NavLink to={`/accommodations/${accommodation.accommodation_id}`} style={{textDecoration: "none"}}>
+					<button className='d-block'>Book Now</button>
+				</NavLink>
 			</div>
 		);
-	}
-	);
-
+	});
 
   	return (
     	<div className='hot_deals container'>
+
+			<div className='super_container container-fluid d-flex justify-content-center m-0'>
+				<div className='track_container'>
+					{<FilterHotelByLocation accommodations={accommodations} setAccommodations={setAccommodations}></FilterHotelByLocation>}
+				</div>
+			</div>
+
+			<h3>Top Accommodations</h3>
+			<div className='super_container container-fluid d-flex justify-content-center m-0'>
+				<div className='track_container'>
+					{<TopAccommodations accommodations={accommodations} setAccommodations={setAccommodations}></TopAccommodations>}
+				</div>
+			</div>
+
 			<h3>Accommodations</h3>
 			<div className='card_container d-flex flex-wrap justify-content-center gap-5'>
 				{accommodation_cards}
