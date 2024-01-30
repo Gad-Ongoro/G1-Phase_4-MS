@@ -22,7 +22,9 @@ export default function Header({bookings, handleLogOut}) {
     function handleStaysClick(){
         setVacations(false)
         // setStays(true)
-    }
+    };
+
+    // console.log(signedIn);
 
 
     return (
@@ -38,13 +40,13 @@ export default function Header({bookings, handleLogOut}) {
                     <img className='language_img' src='https://t-cf.bstatic.com/design-assets/assets/v3.109.0/images-flags/Gb@3x.png' alt='NA'></img>
                     <img className='support_img' src='https://cdn-icons-png.flaticon.com/128/10309/10309127.png' alt='NA'></img>
                     <p>
-                        <NavLink to='/bookings' className='text-white nav_links_2'><div className='bookings d-inline'>Manage Bookings <p className='booking_count'>{bookings}</p></div></NavLink>
+                        <NavLink to='/my_bookings' className='text-white nav_links_2'><div className='bookings d-inline'>Manage Bookings <p className='booking_count'>{bookings}</p></div></NavLink>
                     </p>
                     <p>
                         {signedIn ?
                             <NavLink to='/accommodations' className='text-white nav_links_2' exact onClick={handleLogOut}>Logout</NavLink>
                             :
-                            <NavLink to='/account' className='text-white nav_links_2' exact>Sign in</NavLink>
+                            <NavLink to='/signup' className='text-white nav_links_2' exact>Login</NavLink>
                         }                        
                     </p>
                     <p>
