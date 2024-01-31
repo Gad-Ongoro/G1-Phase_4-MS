@@ -1,30 +1,8 @@
-from flask import Flask, render_template, request, make_response, jsonify, session, abort
-from flask_bcrypt import Bcrypt
-# from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
-import jwt
-from flask_cors import CORS
-from flask_migrate import Migrate
-from flask_restful import Api, Resource
-from models import db, Vacation, Accommodation, Customer, Customer_Profile, Paymentdetail, Booking
-from customer_authentication_middleware import token_required
+from config import db, app, bcrypt, render_template
+from config import api, Resource, request, make_response, jsonify, session, abort, jwt
+from models import Vacation, Accommodation, Customer, Customer_Profile, Paymentdetail, Booking
 
-app = Flask(__name__)
-app.secret_key = b'\xb2_8\xcc\xfc\xec3n\xc5\x7f\x01-\xdal[\xc7'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///safaris.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config["JWT_SECRET_KEY"] = b'\xb2_8\xcc\xfc\xec3n\xc5\x7f\x01-\xdal[\xc7'
-app.json.compact = False
-
-
-CORS(app)
-bcrypt = Bcrypt(app)
-bcrypt.init_app(app)
-api = Api(app)
-
-migrate = Migrate(app, db)
-db.init_app(app)
-
-
+""" HOME """
 @app.route('/', methods=['get'])
 def home():
     return render_template('flask_index.html')
@@ -139,7 +117,71 @@ class LogUserIn(Resource):
                 "data": None
             }, 500
         
+        # data = request.get_json()
+        # customer_email = data.get('email')
+        # password = data.get("password")
         
+        # customer = Customer.query.filter_by(email = customer_email).first().to_dict()
+        # response = make_response(jsonify(customer))
+        
+        # try:
+        #     if not data:
+        #         return({'message': 'Please provide the required inputs'}, 400)
+        #     customer = Customer.query.filter_by(email = customer_email).first()
+        #     response = make_response(jsonify(customer))
+            
+        #     if customer is None:
+        #         abort(404, detail=f'No Users with {customer_email} Found!')
+                
+        #     if not bcrypt.check_password_hash(customer.password, password):
+        #         abort(403, detail='Incorrect Password!')
+        #     else:
+        #         try:
+        #             # token should expire after 24 hrs
+        #             customer.token = jwt.encode(
+        #                 {'customer_id': str(customer.customer_id)},
+        #                 app.config["SECRET_KEY"],
+        #                 algorithm="HS256"
+        #             )
+                    
+        #             session['token'] = customer.token
+                    
+        #             return make_response(jsonify({
+        #                 "message": "Successfully fetched auth token",
+        #                 "data": customer.to_dict(),
+        #                 "token": str(customer.token)
+        #             }), 200)
+                    
+        #         except Exception as e:
+        #             return (
+        #                 {
+        #                 "error": "Something went wrong",
+        #                 "message": str(e)
+        #             }, 500
+        #             )
+            
+        # except Exception as e:
+        #     return(
+        #         {"message": "Something went wrong!", 
+        #             "error": str(e),
+        #             "data": None
+        #         }, 500)
+
+        
+        
+        
+
+        # token = create_access_token(identity=customer.customer_id)
+        # return({'jwt': token})
+        
+        # session['customer_id'] = customer.customer_id
+        
+        # return(jsonify({"Message" : f'Welcome {customer.user_name}'}))
+        
+        # customer_dict = customer.to_dict()
+        
+        # response = make_response(jsonify(customer_dict))
+        # response = make_response(jsonify(customer))
         return response
         
 api.add_resource(LogUserIn, '/login')
