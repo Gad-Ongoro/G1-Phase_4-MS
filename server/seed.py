@@ -70,9 +70,6 @@ with app.app_context():
         db.session.add(new_payment_detail)
         db.session.commit()
     
-with app.app_context():
-    new_newsletter_mail = Newsletter_Mail()
-    
 # 5 Bookings
 with app.app_context():
     Booking.query.delete()
@@ -81,9 +78,9 @@ with app.app_context():
             booked_at = dt,
             check_in = dt,
             check_out = dt,
-            customer_id = ri(0, 10),
-            vacation_id = ri(0, 12),
-            accommodation_id = ri(0, 13)
+            customer_id = ri(1, 10),
+            vacation_id = ri(1, 12),
+            accommodation_id = ri(1, 13)
         )
         db.session.add(new_booking)
         db.session.commit()
@@ -97,9 +94,9 @@ with app.app_context():
             description = fake.sentence(),
             created_at = dt,
             updated_at = dt,
-            customer_id = ri(0, 10),
-            vacation_id = ri(0, 10),
-            accommodation_id = ri(0, 15)
+            customer_id = ri(1, 10),
+            vacation_id = ri(1, 10),
+            # accommodation_id = ri(1, 15)
         )
         db.session.add(new_review)
         db.session.commit()
@@ -174,4 +171,13 @@ with app.app_context():
             owner_id = ri(1, 20)
         )
         db.session.add(new_accommodation)
+        db.session.commit()
+        
+# 9 Newsletter Mails 
+with app.app_context():
+    Newsletter_Mail.query.delete()
+    
+    for i in range(0, 20):
+        new_newsletter_mail = Newsletter_Mail(email = fake.email())        
+        db.session.add(new_newsletter_mail)
         db.session.commit()
