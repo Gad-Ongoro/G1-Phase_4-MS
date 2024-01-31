@@ -55,55 +55,18 @@ export default function UserLog() {
 			}
 			else{
 				window.alert('Account already exits!')
-				navigate("/accommodations")
+				navigate('/signin')
 			}
 		})
 		.then((data)=> {
 			if(data){
-				setSignedIn(true)
-				//set cookies
-				// document.cookie = `user_name = ${data.user_name}`;
-				// document.cookie = `customer_id = ${data.customer_id}`;
-				//
-				// setUserName(document.cookie.user_name)
-				// window.alert('Your account has been successfully created')
-				// navigate("/accommodations")
-				localStorage.setItem("customer_auth_token", data.JWT_token)
-				console.log(data.JWT_token);
+				navigate('/signin')
 			}else{
-				navigate('/accommodations')
+				navigate('/signup')
 			}
 		})
 	}
 	//
-
-	// function to get cookie value
-	function getCookie()  
-    {  
-        if(document.cookie.length!==0)  
-        {  
-            var array=document.cookie.split("=");
-			let customer_user_name = array[1]
-			return customer_user_name
-        	// alert("Name="+array[0]+" "+"Value="+array[1]);  
-        }
-    };
-	let customer_user_name = getCookie();
-	user_name = customer_user_name
-	if (user_name){
-		setSignedIn(true)
-	}else{
-		setSignedIn(false)
-	};
-
-	if (user_name === undefined){
-		setSignedIn(false)
-	}else{
-		setSignedIn(true)
-	};
-
-	// console.log(user_name);
-	// 
 
 	function toggle_show_password(){
 		setShowPassword(current => !current);

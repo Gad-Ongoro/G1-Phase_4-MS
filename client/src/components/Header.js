@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { SafarisContext } from '../App';
 
 export default function Header({bookings, handleLogOut}) {
-    let {searchTerm, setSearchTerm, signedIn, setSignedIn} = useContext(SafarisContext);
+    let {searchTerm, setSearchTerm, token_exists} = useContext(SafarisContext);
     let [vacations, setVacations] = useState(true);
     // let [stays, setStays] = useState(false)
 
@@ -43,8 +43,8 @@ export default function Header({bookings, handleLogOut}) {
                         <NavLink to='/my_bookings' className='text-white nav_links_2'><div className='bookings d-inline'>Manage Bookings <p className='booking_count'>{bookings}</p></div></NavLink>
                     </p>
                     <p>
-                        {signedIn ?
-                            <NavLink to='/accommodations' className='text-white nav_links_2' exact onClick={handleLogOut}>Logout</NavLink>
+                        {token_exists ?
+                            <NavLink to='/signin' className='text-white nav_links_2' exact onClick={handleLogOut}>Logout</NavLink>
                             :
                             <NavLink to='/signup' className='text-white nav_links_2' exact>Login</NavLink>
                         }                        

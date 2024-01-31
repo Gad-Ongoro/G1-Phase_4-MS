@@ -54,12 +54,8 @@ export default function SignIn() {
 		})
 		.then((data)=> {
 			if(data){
-				setSignedIn(true)
-				//set cookies
-				document.cookie = `user_name = ${data.user_name}`;
-				document.cookie = `customer_id = ${data.customer_id}`;
-				//
-				setUserName(document.cookie.user_name)
+				localStorage.setItem("customer_auth_token", data.JWT_token)
+				console.log(data.JWT_token);
 				window.alert('Successfully Logged In')
 				navigate("/accommodations")
 				console.log(data);

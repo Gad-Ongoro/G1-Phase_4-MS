@@ -14,6 +14,8 @@ function App() {
 	let [accommodations, setAccommodations] = useState([])
 	let [searchTerm, setSearchTerm] = useState('Hello World')
 
+	let token_exists = localStorage.getItem('customer_auth_token') !== null
+
 	useEffect(() => {
 		fetch("http://127.0.0.1:5000/vacations", {
 			headers:{
@@ -41,15 +43,12 @@ function App() {
 
 	// HEADER
 	function handleLogOut(e){
-		document.cookie = `user_name = ; expires=Thu, 01 Jan 2000 00:00:00 UTC;`;
-		document.cookie = `customer_id = ; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
-		navigate('/signin')
-		setSignedIn(false)
+		// navigate('/signup')
 	}
 
   	return (
     	<div className="App">
-			<SafarisContext.Provider value={{accommodations, setAccommodations, signedIn, setSignedIn, searchTerm, setSearchTerm, bookings, setBookings}}>
+			<SafarisContext.Provider value={{accommodations, setAccommodations, signedIn, setSignedIn, searchTerm, setSearchTerm, bookings, setBookings, token_exists}}>
 				<Header bookings = {bookings} handleLogOut = {handleLogOut}></Header>
 				<Main vacations = {vacations} accommodations = {accommodations} setAccommodations = {setAccommodations}></Main>
 				<Footer></Footer>
