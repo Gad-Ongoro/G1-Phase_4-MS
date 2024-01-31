@@ -15,7 +15,11 @@ function App() {
 	let [searchTerm, setSearchTerm] = useState('Hello World')
 
 	useEffect(() => {
-		fetch("http://127.0.0.1:5000/vacations")
+		fetch("http://127.0.0.1:5000/vacations", {
+			headers:{
+				Authorization: `Bearer ${localStorage.getItem('customer_auth_token')}`
+			}
+		})
 		.then(response => response.json())
 		.then(data => {
 			setVacations(data)

@@ -62,13 +62,14 @@ export default function UserLog() {
 			if(data){
 				setSignedIn(true)
 				//set cookies
-				document.cookie = `user_name = ${data.user_name}`;
-				document.cookie = `customer_id = ${data.customer_id}`;
+				// document.cookie = `user_name = ${data.user_name}`;
+				// document.cookie = `customer_id = ${data.customer_id}`;
 				//
-				setUserName(document.cookie.user_name)
-				window.alert('Your account has been successfully created')
-				navigate("/accommodations")
-				console.log(data);
+				// setUserName(document.cookie.user_name)
+				// window.alert('Your account has been successfully created')
+				// navigate("/accommodations")
+				localStorage.setItem("customer_auth_token", data.JWT_token)
+				console.log(data.JWT_token);
 			}else{
 				navigate('/accommodations')
 			}
@@ -101,7 +102,7 @@ export default function UserLog() {
 		setSignedIn(true)
 	};
 
-	console.log(user_name);
+	// console.log(user_name);
 	// 
 
 	function toggle_show_password(){
@@ -113,8 +114,6 @@ export default function UserLog() {
 			password_input.current.type = 'password';
 		};
 	}
-
-	console.log(signedIn);
 
 	function onRecaptchaCheck(){
 		setRecaptchaCheck(current => !current)
