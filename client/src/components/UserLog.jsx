@@ -1,16 +1,12 @@
-import React, {useState, useEffect, useRef, useContext} from 'react';
-// import SignIn from './SignIn';
+import React, {useState, useEffect, useRef} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
-import { SafarisContext } from '../App';
 
 export default function UserLog() {
 	const navigate = useNavigate();
-	let [user_name, setUserName] = useState();
 	let [recaptchaCheck, setRecaptchaCheck] = useState(false);
 	let [showPassword, setShowPassword] = useState(false);
 	let [signUpData, setSignUpData] = useState({})
-	let {signedIn, setSignedIn} = useContext(SafarisContext)
 
 	let first_name_label = useRef();
 	let last_name_label = useRef();
