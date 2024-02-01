@@ -59,8 +59,6 @@ export default function SignIn() {
 				window.alert('Successfully Logged In')
 				navigate("/accommodations")
 				console.log(data);
-			}else{
-				navigate('/accommodations')
 			}
 		})
 	}

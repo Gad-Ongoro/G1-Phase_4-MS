@@ -56,6 +56,7 @@ export default function UserLog() {
 		})
 		.then((data)=> {
 			if(data){
+				window.alert('Your account has been successfully created!')
 				navigate('/signin')
 			}else{
 				navigate('/signup')

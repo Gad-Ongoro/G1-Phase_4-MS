@@ -7,14 +7,14 @@ import './App.css';
 export const SafarisContext = React.createContext();
 
 function App() {
-	let navigate = useNavigate()
+	let navigate = useNavigate();
 	let [signedIn, setSignedIn] = useState();
 	let [bookings, setBookings] = useState(0);
 	let [vacations, setVacations] = useState([]);
 	let [accommodations, setAccommodations] = useState([])
-	let [searchTerm, setSearchTerm] = useState('Hello World')
+	let [searchTerm, setSearchTerm] = useState('Hello World');
 
-	let token_exists = localStorage.getItem('customer_auth_token') !== null
+	let token_exists = localStorage.getItem('customer_auth_token') !== null;
 
 	useEffect(() => {
 		fetch("http://127.0.0.1:5000/vacations", {
@@ -43,8 +43,8 @@ function App() {
 
 	// HEADER
 	function handleLogOut(e){
-		// navigate('/signup')
-	}
+		if (token_exists){localStorage.removeItem(('customer_auth_token'))};
+	};
 
   	return (
     	<div className="App">
