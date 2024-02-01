@@ -4,10 +4,12 @@ from models import Vacation, Accommodation, Customer, Customer_Profile, Paymentd
 from controllers.newsletter_mails_controller import newsletter_mail_bp
 from controllers.customers_controller import customers_bp
 from controllers.customer_login_controller import log_in_bp
+from controllers.accommodations_controller import accommodation_bp
 
 app.register_blueprint(newsletter_mail_bp)
 app.register_blueprint(customers_bp)
 app.register_blueprint(log_in_bp)
+app.register_blueprint(accommodation_bp)
 
 """ HOME """
 @app.route('/', methods=['get'])
@@ -71,45 +73,6 @@ class All_Vacations(Resource):
         return response
     
 api.add_resource(All_Vacations, '/vacations')
-
-
-""" ACCOMMODATIONS """
-class All_Accommodations(Resource):
-    def get(self):
-        accommodations = [accommodation.to_dict() for accommodation in Accommodation.query.all()]
-        
-        response = make_response(jsonify(accommodations), 200)
-        
-        return response
-    
-api.add_resource(All_Accommodations, '/accommodations')
-
-# ~ Accommodation by ID #
-class Accommodation_by_id(Resource):
-    def get(self, id):
-        accommodation = Accommodation.query.filter_by(accommodation_id = id).first()
-        response = make_response(jsonify(accommodation.to_dict()), 200)
-        return response
-    
-    def patch(self, id):
-        accommodation = Accommodation.query.filter_by(accommodation_id = id).first()
-        
-        data = request.get_json()        
-        for attr in data:
-            setattr(accommodation, attr, data[attr])
-            
-        db.session.commit()
-        
-        response = make_response(jsonify(accommodation.to_dict()))
-        return response
-    
-    def delete(self, id):
-        accommodation = Accommodation.query.filter_by(accommodation_id = id).first()
-        
-        db.session.delete(accommodation)
-        db.session.commit()
-    
-api.add_resource(Accommodation_by_id, '/accommodations/<int:id>')
 
 """ Bookings """
 
