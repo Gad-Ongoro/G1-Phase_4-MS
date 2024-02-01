@@ -58,6 +58,7 @@ export default function SignIn() {
 				console.log(data.JWT_token);
 				window.alert('Successfully Logged In')
 				navigate("/accommodations")
+				window.location.reload();
 				console.log(data);
 			}
 		})
