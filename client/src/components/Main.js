@@ -6,6 +6,7 @@ import Accommodations from './Accommodations';
 import Accommodation from './Accommodation';
 import SignIn from './SignIn';
 import CustomerBookings from './CustomerBookings';
+import Customer_Account from './Customer_Account';
 
 export default function Main({vacations, accommodations, setAccommodations}) {
   return (
@@ -17,6 +18,7 @@ export default function Main({vacations, accommodations, setAccommodations}) {
             <Route path='/signup' exact element={<UserLog></UserLog>}></Route>
             <Route path='/signin' exact element={<SignIn></SignIn>}></Route>
             <Route path='/my_bookings' exact element={<CustomerBookings></CustomerBookings>}></Route>
+            <Route path='/account' exact element={<Customer_Account></Customer_Account>}></Route>
         </Routes>
 
         <div className='app_subscribe'>
