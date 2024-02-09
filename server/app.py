@@ -5,11 +5,13 @@ from controllers.newsletter_mails_controller import newsletter_mail_bp
 from controllers.customers_controller import customers_bp
 from controllers.customer_login_controller import log_in_bp
 from controllers.accommodations_controller import accommodation_bp
+from controllers.customer_profile_controller import cust_profile_bp
 
 app.register_blueprint(newsletter_mail_bp)
 app.register_blueprint(customers_bp)
 app.register_blueprint(log_in_bp)
 app.register_blueprint(accommodation_bp)
+app.register_blueprint(cust_profile_bp)
 
 """ HOME """
 @app.route('/', methods=['get'])
@@ -27,18 +29,6 @@ class CheckSession(Resource):
         except Exception as e:
             return {'token': None}, 404
 api.add_resource(CheckSession, '/check_session')
-
-
-""" CUSTOMER PROFILE """
-class customer_profile(Resource):
-    def get(self):
-        profiles = [profile.to_dict() for profile in Customer_Profile.query.all()]
-        
-        response = make_response(jsonify(profiles), 200)        
-        return response
-    
-api.add_resource(customer_profile, '/customer_profiles')
-
 
 """ PAYMENT DETAILS """
 class payment_details(Resource):
