@@ -1,5 +1,40 @@
-@media screen and (max-width : 500px) {
+/* HEADER */
+@media screen and (max-width : 950px){
+    header .header-nav-container-1{
+        flex-wrap: wrap;
+    }
+    header .header-nav_1{
+        flex-wrap: wrap;
+        column-gap: 30px;
+    }
+}
+
+@media screen and (max-width : 500px){
+    header .search_form{
+        top: 95%;
+    }
+}
+
+/* MAIN */
+@media screen and (max-width : 900px){
+    main .app_subscribe{
+        grid-template-columns: auto;
+    }
+    main .email_subscription{
+        padding: 10px;
+    }
+}
+
+/* FOOTER */
+@media screen and (max-width : 800px) {
     *{
         box-sizing: border-box;
+    }
+
+    footer .continer{
+        width: 99%;
+    }
+    footer .footer-div_2{
+        flex-wrap: wrap;
     }
 }

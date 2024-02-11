@@ -22,21 +22,20 @@ export default function Main({vacations, accommodations, setAccommodations}) {
         </Routes>
 
         <div className='app_subscribe'>
-            <div className='qr_code_div'>
-                <img src='https://gado.w3spaces.com/Img/qrcode.png' alt='NA'></img>
-                <h6 className='p-0 mt-0'>Get our mobile application</h6>
-            </div>
+            
 
             <div className='email_subscription mt-3'>
                 <h2>Join the Safaris Community</h2>
-                <p>Your highly customized holidays have never been easier to curate and enjoy.
-                Safaris has exclusive offers and new holiday inspirations, which we will send directly to you via email.
-                Sign up with us to experience unique destinations and accommodation options, and mind-blowing fun with our things to do.</p> 
-                <p>Worry no more about your next flight, airport transfers or car hire. We are here to ensure that your experience creates lasting memories shared with others through your lenses.</p>
-                <form>
-                    <input type='email' name="newsletter_mail" className='newsletter_mail_input' placeholder='Email Address'></input>
-                    <input type='submit' value="Join Now" className='newsletter_mail_submit'></input>
-                </form>
+                <div className='d-flex flex-column align-items-center'>
+                    <p>Your highly customized holidays have never been easier to curate and enjoy.
+                    Safaris has exclusive offers and new holiday inspirations, which we will send directly to you via email.
+                    Sign up with us to experience unique destinations and accommodation options, and mind-blowing fun with our things to do.</p> 
+                    <p>Worry no more about your next flight, airport transfers or car hire. We are here to ensure that your experience creates lasting memories shared with others through your lenses.</p>
+                    <form>
+                        <input type='email' name="newsletter_mail" className='newsletter_mail_input' placeholder='Email Address'></input>
+                        <input type='submit' value="Join Now" className='newsletter_mail_submit'></input>
+                    </form>
+                </div>
             </div>
 
             <div className='why-us mt-3'>
@@ -52,12 +51,17 @@ export default function Main({vacations, accommodations, setAccommodations}) {
                 </div>
             </div>
 
-            <div className='socials d-flex flex-column gap-2'>
-				<img src='https://img.icons8.com/?size=100&id=118467&format=png' alt='facebook'></img>
-				<img src='https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png' alt='twitter'></img>
-				<img src='https://img.icons8.com/?size=100&id=32309&format=png' alt='instagram'></img>
-				<img src='https://img.icons8.com/?size=100&id=8808&format=png' alt='linkedin'></img>
-			</div>
+            <div className='qr_code_div'>
+                <img src='https://gado.w3spaces.com/Img/qrcode.png' alt='NA'></img>
+                <h6 className='p-0 mt-0'>Get our mobile application</h6>
+
+                <div className='socials d-flex gap-2 justify-content-center'>
+                    <img src='https://img.icons8.com/?size=100&id=118467&format=png' alt='facebook'></img>
+                    <img src='https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png' alt='twitter'></img>
+                    <img src='https://img.icons8.com/?size=100&id=32309&format=png' alt='instagram'></img>
+                    <img src='https://img.icons8.com/?size=100&id=8808&format=png' alt='linkedin'></img>
+                </div>
+            </div>
 
         </div>
     </main>

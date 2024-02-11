@@ -68,6 +68,10 @@ header{
 header .home_link{
 	text-decoration: none;
 }
+header .header-nav_1{
+	display: flex;
+	column-gap: 50px;
+}
 header .nav_links_2{
 	color: white;
 	padding: 7px;
@@ -336,7 +340,7 @@ main h3{
 
 main .app_subscribe{
 	display: grid;
-	grid-template-columns: 30% 36% 30%;
+	grid-template-columns: 39% 27% 25%;
 	gap: 10px;
 	justify-content: center;
 
@@ -358,14 +362,10 @@ input.newsletter_mail_submit{
 	border-radius: 0 6px 6px 0;
 }
 
-main .socials{
-	position: absolute;
-	top: 50%;
-	left: 1%;
-	transform: translateY(-50%);
-}
 main .socials img{
-	width: 30%;
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
 	transition: all 0.3s;
 }
 main .socials img:hover{
@@ -466,4 +466,4 @@ footer div.copyright p{
 	font-size: 14px;
 }
 
-/* track_container */
+/* grid-tempelate */

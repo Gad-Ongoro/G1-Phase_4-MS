@@ -35,7 +35,7 @@ export default function Header({bookings, handleLogOut}) {
                         <span className='spartans_span'>Spartans</span> <span className='safaris_span'>Safaris</span>
                     </NavLink>
                 </h4>
-                <div className='header-nav_1 d-flex gap-5'>
+                <div className='header-nav_1'>
                     <h5>KES</h5>
                     <img className='language_img' src='https://t-cf.bstatic.com/design-assets/assets/v3.109.0/images-flags/Gb@3x.png' alt='NA'></img>
                     <img className='support_img' src='https://cdn-icons-png.flaticon.com/128/10309/10309127.png' alt='NA'></img>
