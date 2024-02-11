@@ -181,6 +181,28 @@ main h3{
 	font-weight: bold;
 }
 
+.profile_info{
+	display: flex;
+	gap: 20%;
+}
+
+.dp_name img{
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.fields_details{
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto;
+	column-gap: 10%;
+}
+.account_details{
+	width: 500px;
+}
+
 .safari_card{
 	overflow: hidden;
 }
@@ -196,7 +218,6 @@ main h3{
 .track_container{
 	position: relative;
 	width: 90%;
-
 }
 
 .track_container .slide_btn_left{

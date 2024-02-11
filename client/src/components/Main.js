@@ -6,19 +6,19 @@ import Accommodations from './Accommodations';
 import Accommodation from './Accommodation';
 import SignIn from './SignIn';
 import CustomerBookings from './CustomerBookings';
-import Customer_Account from './Customer_Account';
+import CustomerAccount from './CustomerAccount';
 
 export default function Main({vacations, accommodations, setAccommodations}) {
   return (
     <main>
         <Routes>
-            <Route path='/accommodations/:id' element={<Accommodation></Accommodation>}></Route>
-            <Route element={<Vacations vacations = {vacations}></Vacations>} path='/vacations'></Route>
+            <Route path='/vacations' element={<Vacations vacations = {vacations}></Vacations>}></Route>
             <Route path='/accommodations' element={<Accommodations accommodations = {accommodations} setAccommodations={setAccommodations}></Accommodations>} exact></Route>
+            <Route path='/accommodations/:id' element={<Accommodation></Accommodation>}></Route>
             <Route path='/signup' exact element={<UserLog></UserLog>}></Route>
             <Route path='/signin' exact element={<SignIn></SignIn>}></Route>
             <Route path='/my_bookings' exact element={<CustomerBookings></CustomerBookings>}></Route>
-            <Route path='/account' exact element={<Customer_Account></Customer_Account>}></Route>
+            <Route path='/account/*' exact element={<CustomerAccount></CustomerAccount>}></Route>
         </Routes>
 
         <div className='app_subscribe'>

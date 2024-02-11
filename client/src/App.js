@@ -9,6 +9,7 @@ export const SafarisContext = React.createContext();
 function App() {
 	let navigate = useNavigate();
 	let [signedIn, setSignedIn] = useState();
+	let [customer, SetCustomer] = useState();
 	let [bookings, setBookings] = useState(0);
 	let [vacations, setVacations] = useState([]);
 	let [accommodations, setAccommodations] = useState([])
