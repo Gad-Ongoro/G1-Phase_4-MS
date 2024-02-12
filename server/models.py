@@ -33,6 +33,7 @@ class Customer_Profile(db.Model, SerializerMixin):
     
     profile_id = db.Column(db.Integer, primary_key = True)
     dp_url = db.Column(db.String)
+    phone_number = db.Column(db.String)
     backup_mail = db.Column(db.String)
     account_type = db.Column(db.String)
     nationality = db.Column(db.String)

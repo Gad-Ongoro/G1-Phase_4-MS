@@ -47,6 +47,7 @@ with app.app_context():
     for safari_customer in customers:
         new_customer_profile = Customer_Profile(
             dp_url = fake.image_url(),
+            phone_number = fake.phone_number(),
             backup_mail = fake.email(),
             account_type = "User",
             nationality = fake.country(),
