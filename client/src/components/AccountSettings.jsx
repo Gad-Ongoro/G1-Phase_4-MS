@@ -2,27 +2,46 @@ import React, { useContext, useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { SafarisContext } from '../App';
 
-function CustomerInfo() {
-	let {customer, scrollToTop, customerProfile} = useContext(SafarisContext);
+function AccountSettings() {
+	let {customer, scrollToTop, token_exists, updateCustomerProfile} = useContext(SafarisContext);
 	let [details_loaded, setDetailsLoaded] = useState(false);
-	console.log(customerProfile);
+	let [inputs, setInputs] = useState({});
 
 	useEffect(() => {
 		setTimeout(() => {
 			setDetailsLoaded(true);
 		}, 1000)
-	})
+	});
 
-	let spinners = <div>
+	// Handle Input Change
+	function onInputChange(e){
+		let name = e.target.name;
+		let value = e.target.value;
+
+		if (e.target.type === 'select-one'){
+			value = e.target.options[e.target.selectedIndex].value;
+		}
+		setInputs(current => ({...current, [name]:value}));
+	};
+
+	// Handle Form Submit
+	function handleSubmit(e){
+		e.preventDefault();
+		updateCustomerProfile(inputs);
+	};
+
+	let spinners = (<div>
 		<div className='spinner-border text-primary'></div>
 		<div className='spinner-grow text-primary'></div>
 		<div className='spinner-border text-primary'></div>
 		<div className='spinner-grow text-primary'></div>
 		<div className='spinner-border text-primary'></div>
 		<div className='spinner-grow text-primary'></div>
-	</div>
+	</div>);
 
 	let customer_information = customer !== undefined ? (<>
+		{/* SignUp Data */}
+		<form onSubmit={handleSubmit}>
 			<div className='dp_name d-flex justify-content-center align-items-center gap-3'>
 				<img className='dp' src="https://i.pinimg.com/474x/21/d7/23/21d7230202a30e3f8acd8ff1d284407d.jpg" alt="NA"/>
 				<div>
@@ -48,33 +67,44 @@ function CustomerInfo() {
 					<p className='m-1 text-secondary'>Email Address</p>
 					<h6 className='mx-3'>{customer.email}</h6>
 				</div>
+			</div>
+			<button type="submit">Update</button>
+		</form>
+		
+		{/* Profile Data */}
+		<form onSubmit={handleSubmit}>
+			<div className='fields_details mt-4'>
 				<div>
 					<p className='m-1 text-secondary'>Backup Email</p>
-					<h6 className='mx-3'>{customerProfile.backup_mail}</h6>
+					<input type='email' className='mx-3' name='backup_mail' onChange={onInputChange}></input>
 				</div>
 				<div>
 					<p className='m-1 text-secondary'>Phone Number</p>
-					<h6 className='mx-3'>{customerProfile.phone_number}</h6>
+					<input type='tel' className='mx-3' name='phone_number' onChange={onInputChange}></input>
 				</div>
 				<div>
 					<p className='m-1 text-secondary'>Nationality</p>
-					<h6 className='mx-3'>{customerProfile.nationality}</h6>
+					<input type='text' className='mx-3' name='nationality' onChange={onInputChange}></input>
 				</div>
 				<div>
 					<p className='m-1 text-secondary'>Account Type</p>
-					<h6 className='mx-3'>{customerProfile.account_type}</h6>
+					<select name="account_type" onChange={onInputChange}>
+						<option value="Customer">Customer</option>
+						<option value="Owner">Owner</option>
+						<option value="Admin">Admin</option>
+					</select>
 				</div>
 			</div>
+			<button type="submit">Update</button>
+		</form>
 	</>) : spinners;
-	
-  	return (
-    	<div className='container account_details'>
+
+	return (
+		<div>
 			{details_loaded ? customer_information : spinners}
-			{details_loaded && <button type='button' className=''>
-				<NavLink to='/account/settings' exact className={'text-decoration-none'} onClick={scrollToTop}>Edit Details</NavLink>
-			</button>}
+			{/* {!token_exists && <NavLink to={'/signin'}>Login</NavLink>} */}
 		</div>
-  	)
+	);
 };
 
-export default CustomerInfo;
+export default AccountSettings;

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { NavLink } from 'react-router-dom';
 import TopAccommodations from './TopAccommodations';
 import FilterHotelByLocation from './FilterHotelByLocation';
+import { SafarisContext } from '../App';
 
 export default function Accommodations({accommodations, setAccommodations}) {
 	// let [new_hotel_name, setNewHotelName] = useState({})
+	let {scrollToTop} = useContext(SafarisContext);
 
 	let accommodation_cards = accommodations.map((accommodation) => {
 		return(
@@ -55,7 +57,7 @@ export default function Accommodations({accommodations, setAccommodations}) {
 				alt='NA'>
 				</img>
 
-				<NavLink to={`/accommodations/${accommodation.accommodation_id}`} style={{textDecoration: "none"}}>
+				<NavLink to={`/accommodations/${accommodation.accommodation_id}`} style={{textDecoration: "none"}} exact onClick={scrollToTop}>
 					<button className='d-block'>Book Now</button>
 				</NavLink>
 			</div>
