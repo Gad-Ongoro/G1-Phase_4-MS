@@ -97,7 +97,7 @@ with app.app_context():
             updated_at = dt,
             customer_id = ri(1, 10),
             vacation_id = ri(1, 10),
-            # accommodation_id = ri(1, 15)
+            accommodation_id = ri(1, 10)
         )
         db.session.add(new_review)
         db.session.commit()

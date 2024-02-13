@@ -76,7 +76,7 @@ class Owner(db.Model, SerializerMixin):
 class Review(db.Model, SerializerMixin):
     __tablename__ = "reviews"
     
-    serialize_rules = ('-customer.reviews', '-vacation.reviews', '-accommodation.reviews', '-customer.bookings', '-customer.customer_profile', '-customer.payment_detail',)
+    serialize_rules = ('-customer.reviews', '-vacation.reviews', '-accommodation.bookings', '-accommodation.reviews', '-customer.bookings', '-customer.customer_profile', '-customer.payment_detail',)
     
     review_id = db.Column(db.Integer, primary_key = True)
     rating = db.Column(db.Integer)
@@ -90,7 +90,7 @@ class Review(db.Model, SerializerMixin):
 class Booking(db.Model, SerializerMixin):
     __tablename__ = "bookings"
     
-    serialize_rules = ('-customer.bookings', '-vacation.bookings', '-accommodation.bookings', '-customer.reviews', '-customer.customer_profile', '-customer.payment_detail')
+    serialize_rules = ('-customer.bookings', '-vacation.bookings', '-accommodation.bookings', '-accommodation.reviews', '-customer.reviews', '-customer.customer_profile', '-customer.payment_detail')
     
     booking_id = db.Column(db.Integer, primary_key = True)
     booked_at = db.Column(db.DateTime, server_default=db.func.now())

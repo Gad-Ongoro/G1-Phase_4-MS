@@ -1,8 +1,7 @@
 from flask import Blueprint, make_response, jsonify, request, abort
 from flask_restful import Api, Resource
 from models import Customer, Customer_Profile
-from config import db, bcrypt, create_access_token, session
-
+from config import db, bcrypt, jwt_required
 cust_profile_bp = Blueprint('cust_profile_bp', __name__)
 api = Api(cust_profile_bp)
 
@@ -35,9 +34,23 @@ class Customer_Profile_Resource(Resource):
     def get(self, id):
         customer_profile = Customer_Profile.query.filter_by(profile_id = id).first()
         
-        response = make_response(jsonify(customer_profile.to_dict()), 200)
-        return response
-    
+        if customer_profile is not None:
+            response = make_response(jsonify(customer_profile.to_dict()), 200)
+            return response
+        else:
+            new_customer_profile = Customer_Profile(
+                dp_url = None,
+                backup_mail = None,
+                account_type = None,
+                nationality = None,
+                customer_id = id
+            )
+            db.session.add(new_customer_profile)
+            db.session.commit()
+
+            response = make_response(jsonify(new_customer_profile.to_dict()), 201)
+            return response
+
     def patch(self, id):
         data = request.get_json()
         customer_profile = Customer_Profile.query.filter_by(profile_id = id).first()

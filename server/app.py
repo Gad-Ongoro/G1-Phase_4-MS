@@ -1,6 +1,6 @@
 from config import db, app, bcrypt, render_template, jwt_required
 from config import api, Resource, request, make_response, jsonify, session, abort
-from models import Vacation, Accommodation, Customer, Customer_Profile, Paymentdetail, Booking
+from models import Vacation, Accommodation, Customer_Profile, Paymentdetail, Booking, Review
 from controllers.newsletter_mails_controller import newsletter_mail_bp
 from controllers.customers_controller import customers_bp
 from controllers.customer_login_controller import log_in_bp
@@ -55,7 +55,6 @@ api.add_resource(Customer_Bookings, '/customer_bookings/<int:id>')
 
 """ VACATIONS """
 class All_Vacations(Resource):
-    @jwt_required()
     def get(self):
         vacations = [vacay.to_dict() for vacay in Vacation.query.all()]
             
@@ -65,6 +64,22 @@ class All_Vacations(Resource):
 api.add_resource(All_Vacations, '/vacations')
 
 """ Bookings """
+
+""" REVIEWS """
+class All_Reviews(Resource):
+    def get(self):
+        reviews = [review.to_dict() for review in Review.query.all()]
+        
+        response = make_response(jsonify(reviews), 200)
+        return response
+
+class Review_By_ID(Resource):
+    def get(self, id):
+        review = Review.query.filter_by(review_id = id).first().to_dict()
+        response = make_response(jsonify(review))
+        return response
+api.add_resource(All_Reviews, '/reviews')
+api.add_resource(Review_By_ID, '/reviews/<int:id>')
 
 if __name__ == '__main__':
     app.run(debug=True)
