@@ -154,7 +154,8 @@ with app.app_context():
         'https://cf.bstatic.com/xdata/images/hotel/square600/265347567.webp?k=966f5d9a0771713c1484c52909aa62fe8fbfdab005a3c682bf23e5ef4afb26ea&o=',
         'https://cf.bstatic.com/xdata/images/hotel/square600/443263557.webp?k=5a0decae1c258459e3802f7d03145f11c8cb9b109fa9e0dc668151ee34fcde83&o=',
         'https://cf.bstatic.com/xdata/images/hotel/square600/278600871.webp?k=01b375b5e89aa6f79b41b229e02231bf8b85ffe81098025f56f0de6d37429c66&o=',
-        'https://cf.bstatic.com/xdata/images/hotel/square600/55242416.webp?k=b9bd7472a37e2d1238087e29bfe2d6858ec93a7f82319e2f3851b87ce44551b6&o='
+        'https://cf.bstatic.com/xdata/images/hotel/square600/55242416.webp?k=b9bd7472a37e2d1238087e29bfe2d6858ec93a7f82319e2f3851b87ce44551b6&o=',
+        'https://cf.bstatic.com/xdata/images/hotel/square600/525814234.webp?k=db01614efb4554691fdf641f0ac47d71b7ffdf9dbbca165cc5bd67678d8b2b78&o='
         
     ]
     locations = ['Diani Beach', 'Cape Town', 'Mombasa', 'Nairobi', 'Egypt', 'Nyali', 'Naivasha', 'Zanzibar', 'Kisumu', 'Maldives', 'Dubai']
