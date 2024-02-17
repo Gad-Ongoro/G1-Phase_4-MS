@@ -5,9 +5,9 @@ from models import Booking, Review
 from models import Vacation, Accommodation
 from models import Newsletter_Mail
 from random import choice as rc, randint as ri
-import datetime
+from datetime import datetime
 
-dt = datetime.datetime(2030, 1, 1)
+dt = datetime(2030, 1, 1)
 
 fake = Faker()
 
@@ -76,9 +76,9 @@ with app.app_context():
     Booking.query.delete()
     for i in range(0, 10):
         new_booking = Booking(
-            booked_at = dt,
-            check_in = dt,
-            check_out = dt,
+            booked_at = datetime.now(),
+            check_in = datetime.now(),
+            check_out = datetime.now(),
             customer_id = ri(1, 10),
             vacation_id = ri(1, 12),
             accommodation_id = ri(1, 13)
@@ -93,8 +93,8 @@ with app.app_context():
         new_review = Review(
             rating = ri(4, 10),
             description = fake.sentence(),
-            created_at = dt,
-            updated_at = dt,
+            created_at = datetime.now(),
+            updated_at = datetime.now(),
             customer_id = ri(1, 10),
             vacation_id = ri(1, 10),
             accommodation_id = ri(1, 10)
