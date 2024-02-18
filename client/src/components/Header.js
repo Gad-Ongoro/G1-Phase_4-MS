@@ -46,7 +46,7 @@ export default function Header({bookings, handleLogOut}) {
                         {token_exists ?
                             <NavLink to='/signin' className='text-white nav_links_2' exact onClick={handleLogOut}>Logout</NavLink>
                             :
-                            <NavLink to='/signup' className='text-white nav_links_2' exact>Login</NavLink>
+                            <NavLink to='/signin' className='text-white nav_links_2' exact>Login</NavLink>
                         }                        
                     </p>
                     <p>
