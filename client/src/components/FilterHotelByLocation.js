@@ -39,7 +39,7 @@ function FilterHotelByLocation() {
 				<p className='m-0 text-center'>From Kes: {accommodation.price}</p>
 
 				<NavLink to={`/accommodations/${accommodation.accommodation_id}`} style={{textDecoration: "none"}}>
-					<button className='d-block'>Book Now</button>
+					<button className='d-block border-1 border-primary rounded-pill'>Book Now</button>
 				</NavLink>
 			</div>
 		);

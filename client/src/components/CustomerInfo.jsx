@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { SafarisContext } from '../App';
 
 function CustomerInfo() {
-	let {customer, scrollToTop, customerProfile} = useContext(SafarisContext);
+	let {customer, scrollToTop, customerProfile, spinners} = useContext(SafarisContext);
 	let [details_loaded, setDetailsLoaded] = useState(false);
 	console.log(customerProfile);
 
@@ -12,15 +12,6 @@ function CustomerInfo() {
 			setDetailsLoaded(true);
 		}, 1000)
 	})
-
-	let spinners = <div>
-		<div className='spinner-border text-primary'></div>
-		<div className='spinner-grow text-primary'></div>
-		<div className='spinner-border text-primary'></div>
-		<div className='spinner-grow text-primary'></div>
-		<div className='spinner-border text-primary'></div>
-		<div className='spinner-grow text-primary'></div>
-	</div>
 
 	let customer_information = customer !== undefined ? (<>
 			<div className='dp_name d-flex justify-content-center align-items-center gap-3'>

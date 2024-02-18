@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { SafarisContext } from '../App';
 
 function AccountSettings() {
-	let {customer, scrollToTop, token_exists, updateCustomerProfile} = useContext(SafarisContext);
+	let {customer, scrollToTop, token_exists, updateCustomerProfile, spinners} = useContext(SafarisContext);
 	let [details_loaded, setDetailsLoaded] = useState(false);
 	let [inputs, setInputs] = useState({});
 
@@ -29,15 +29,6 @@ function AccountSettings() {
 		e.preventDefault();
 		updateCustomerProfile(inputs);
 	};
-
-	let spinners = (<div>
-		<div className='spinner-border text-primary'></div>
-		<div className='spinner-grow text-primary'></div>
-		<div className='spinner-border text-primary'></div>
-		<div className='spinner-grow text-primary'></div>
-		<div className='spinner-border text-primary'></div>
-		<div className='spinner-grow text-primary'></div>
-	</div>);
 
 	let customer_information = customer !== undefined ? (<>
 		{/* SignUp Data */}
