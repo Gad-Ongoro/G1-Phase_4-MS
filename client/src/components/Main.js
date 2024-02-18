@@ -14,7 +14,7 @@ export default function Main({vacations, accommodations, setAccommodations}) {
         <Routes>
             <Route path='/vacations' element={<Vacations vacations = {vacations}></Vacations>}></Route>
             <Route path='/accommodations' element={<Accommodations accommodations = {accommodations} setAccommodations={setAccommodations}></Accommodations>} exact></Route>
-            <Route path='/accommodations/:id' element={<Accommodation></Accommodation>}></Route>
+            <Route path='/accommodations/:accommodation_id/*' element={<Accommodation></Accommodation>}></Route>
             <Route path='/signup' exact element={<UserLog></UserLog>}></Route>
             <Route path='/signin' exact element={<SignIn></SignIn>}></Route>
             <Route path='/my_bookings' exact element={<CustomerBookings></CustomerBookings>}></Route>
