@@ -57,8 +57,14 @@ export default function Accommodations({accommodations, setAccommodations}) {
 				alt='NA'>
 				</img>
 
-				<NavLink to={`/accommodations/${accommodation.accommodation_id}`} style={{textDecoration: "none"}} exact onClick={scrollToTop}>
-					<button className='d-block'>Book Now</button>
+				<NavLink
+				to={`/accommodations/${accommodation.accommodation_id}`}
+				style={{textDecoration: "none"}} exact 
+				onClick={()=>{
+					scrollToTop();
+				}}
+				>
+					<button className='d-block border-1 border-primary rounded-pill'>Book Now</button>
 				</NavLink>
 			</div>
 		);
