@@ -14,6 +14,7 @@ function App() {
 	let [bookings, setBookings] = useState(0);
 	let [vacations, setVacations] = useState([]);
 	let [accommodations, setAccommodations] = useState([]);
+	let [reviews, setReviews] = useState([]);
 	let [searchTerm, setSearchTerm] = useState('Hello World');
 	let user_id;
 
@@ -35,6 +36,8 @@ function App() {
 					return(
 					response.json()
 					)
+				} else{
+					window.alert('No Users Found!')
 				}
 			})
 			.then(data => {
@@ -87,11 +90,21 @@ function App() {
 		.then(response => response.json())
 		.then(data => {
 			setAccommodations(data)
-			// console.log(data);
 		})
 	},
 	[]
 	)
+
+	// READ reviews (Accommodation_Reviews)
+	useEffect(
+		() => {
+			fetch('http://127.0.0.1:5000/reviews')
+			.then(response => response.json())
+			.then(data => setReviews(data))
+		},
+	[]
+	);
+
 
 // functions() => {}
 	// UPDATE customer_profiles/:id
@@ -115,6 +128,16 @@ function App() {
 		};
 	};
 
+// Elements <> </>
+	let spinners = (<div className='text-center p-4 m-4'>
+		<div className='spinner-border text-primary mx-2'></div>
+		<div className='spinner-grow text-primary mx-2'></div>
+		<div className='spinner-border text-primary mx-2'></div>
+		<div className='spinner-grow text-primary mx-2'></div>
+		<div className='spinner-border text-primary mx-2'></div>
+		<div className='spinner-grow text-primary mx-2'></div>
+	</div>);
+
 
 	// handle log out
 	function handleLogOut(e){
@@ -132,7 +155,9 @@ function App() {
 			<SafarisContext.Provider value={{customer, user_id,
 				accommodations, setAccommodations,
 				signedIn, setSignedIn, searchTerm, setSearchTerm, bookings, setBookings,
-				token_exists, scrollToTop, customerProfile, updateCustomerProfile}}>
+				token_exists, scrollToTop, customerProfile, updateCustomerProfile,
+				spinners, reviews
+				}}>
 
 				<Header bookings = {bookings} handleLogOut = {handleLogOut}></Header>
 				<Main vacations={vacations}  accommodations={accommodations}  setAccommodations={setAccommodations}></Main>
