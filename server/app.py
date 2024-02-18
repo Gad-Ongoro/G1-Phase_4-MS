@@ -6,12 +6,14 @@ from controllers.customers_controller import customers_bp
 from controllers.customer_login_controller import log_in_bp
 from controllers.accommodations_controller import accommodation_bp
 from controllers.customer_profile_controller import cust_profile_bp
+from controllers.reviews_controller import reviews_bp
 
 app.register_blueprint(newsletter_mail_bp)
 app.register_blueprint(customers_bp)
 app.register_blueprint(log_in_bp)
 app.register_blueprint(accommodation_bp)
 app.register_blueprint(cust_profile_bp)
+app.register_blueprint(reviews_bp)
 
 """ HOME """
 @app.route('/', methods=['get'])
@@ -65,21 +67,7 @@ api.add_resource(All_Vacations, '/vacations')
 
 """ Bookings """
 
-""" REVIEWS """
-class All_Reviews(Resource):
-    def get(self):
-        reviews = [review.to_dict() for review in Review.query.all()]
-        
-        response = make_response(jsonify(reviews), 200)
-        return response
 
-class Review_By_ID(Resource):
-    def get(self, id):
-        review = Review.query.filter_by(review_id = id).first().to_dict()
-        response = make_response(jsonify(review))
-        return response
-api.add_resource(All_Reviews, '/reviews')
-api.add_resource(Review_By_ID, '/reviews/<int:id>')
 
 if __name__ == '__main__':
     app.run(debug=True)
