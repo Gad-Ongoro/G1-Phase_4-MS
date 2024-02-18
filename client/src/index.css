@@ -326,6 +326,12 @@ main h3{
 	transform: translateY(-50%);
 }
 
+.accommodation_card .comment-btn{
+	width: 23px;
+	height: 23px;
+	object-fit: cover;
+}
+
 .accommodation_card .edit-btn{
 	width: 23px;
 	height: 23px;
