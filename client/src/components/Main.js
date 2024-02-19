@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import UserLog from './UserLog';
 import Vacations from './Vacations';
@@ -7,13 +7,17 @@ import Accommodation from './Accommodation';
 import SignIn from './SignIn';
 import CustomerBookings from './CustomerBookings';
 import CustomerAccount from './CustomerAccount';
+import { SafarisContext } from '../App';
 
 export default function Main({vacations, accommodations, setAccommodations}) {
-  return (
+    let { spinners } = useContext(SafarisContext);
+    let acc_loaded = accommodations[0] !== undefined;
+
+    return (
     <main>
         <Routes>
             <Route path='/vacations' element={<Vacations vacations = {vacations}></Vacations>}></Route>
-            <Route path='/accommodations' element={<Accommodations accommodations = {accommodations} setAccommodations={setAccommodations}></Accommodations>} exact></Route>
+            <Route path='/accommodations' element={acc_loaded ? <Accommodations accommodations = {accommodations} setAccommodations={setAccommodations}></Accommodations> : spinners} exact></Route>
             <Route path='/accommodations/:accommodation_id/*' element={<Accommodation></Accommodation>}></Route>
             <Route path='/signup' exact element={<UserLog></UserLog>}></Route>
             <Route path='/signin' exact element={<SignIn></SignIn>}></Route>
