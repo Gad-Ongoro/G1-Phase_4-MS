@@ -1,26 +1,27 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
-export default function TopAccommodations({accommodations, setAccommodations}) {
-	// let [display_cards, setDisplay_cards] = useState();
-	let carousel_track = useRef();
-	let slide_btn_left = useRef();
-	let slide_btn_right = useRef();
-
-
-	function handleLeftBtnClick(e){
-		carousel_track.current.style.cssText = `
-			transform: translateX(0px);
-			transition: all 0.7s;
-		`
-	};
-
-	function handleRightBtnClick(e){
-		carousel_track.current.style.cssText = `
-			transform: translateX(-900px);
-			transition: all 0.7s;
-		`
-	};
+export default function TopAccommodations({ accommodations }) {
+	const responsive = {
+		superLargeDesktop: {
+		  breakpoint: { max: 4000, min: 3000 },
+		  items: 5
+		},
+		desktop: {
+		  breakpoint: { max: 3000, min: 1024 },
+		  items: 3
+		},
+		tablet: {
+		  breakpoint: { max: 1024, min: 464 },
+		  items: 2
+		},
+		mobile: {
+		  breakpoint: { max: 464, min: 0 },
+		  items: 1
+		}
+	  };
 
 	let top_accommodations = accommodations.filter((accommodation) => {
 		return(
@@ -49,11 +50,9 @@ export default function TopAccommodations({accommodations, setAccommodations}) {
 
     return (
 		<>
-			<img ref={slide_btn_left} className='slide_btn_left' onClick={handleLeftBtnClick} src='https://cdn-icons-png.flaticon.com/128/5791/5791265.png' alt='NA'></img>
-			<div ref={carousel_track} className='tracker d-flex gap-5'>
-				{top_accommodations_cards}
-			</div>
-			<img ref={slide_btn_right} className='slide_btn_right' onClick={handleRightBtnClick} src='https://cdn-icons-png.flaticon.com/128/5791/5791265.png' alt='NA'></img>
+			<Carousel responsive={responsive}>
+				{top_accommodations_cards.map((card) => <div>{card}</div>)}
+			</Carousel>
 		</>
- 	)
+ 	);
 };

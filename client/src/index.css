@@ -177,44 +177,6 @@ header .header-nav-container-2 .active{
 }
 
 /* MAIN */
-/* main{
-	
-} */
-main h3{
-	color: rgb(20, 0, 100);
-	font-weight: bold;
-}
-
-.profile_info{
-	display: flex;
-	gap: 20%;
-}
-
-.dp_name img{
-	width: 120px;
-	height: 120px;
-	object-fit: cover;
-	border-radius: 50%;
-}
-
-.fields_details{
-	width: 100%;
-	display: grid;
-	grid-template-columns: auto auto;
-	column-gap: 10%;
-}
-.account_details{
-	width: 500px;
-}
-
-.safari_card{
-	overflow: hidden;
-}
-
-/* div.top_accom_card{
-	width: 200px;
-	height: 300px;
-} */
 .super_container{
 	margin: 0;
 	overflow-x: hidden;
@@ -245,6 +207,38 @@ main h3{
 	right: -6%;
 	transform: translateY(-50%);
 	z-index: 100;
+}
+
+
+main h3{
+	color: rgb(20, 0, 100);
+	font-weight: bold;
+}
+
+.profile_info{
+	display: flex;
+	gap: 20%;
+}
+
+.dp_name img{
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.fields_details{
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto;
+	column-gap: 10%;
+}
+.account_details{
+	width: 500px;
+}
+
+.safari_card{
+	overflow: hidden;
 }
 
 .top_accom_card .edit-btn{
