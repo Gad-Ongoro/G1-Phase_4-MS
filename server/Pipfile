@@ -19,6 +19,7 @@ faker = "*"
 python-dotenv = "*"
 pyjwt = "*"
 pillow = "*"
+flask-jwt-extended = "*"
 
 [dev-packages]
 
