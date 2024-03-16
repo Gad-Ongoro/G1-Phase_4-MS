@@ -21,8 +21,8 @@ app = Flask(__name__)
 # app configuration
 app = Flask(__name__)
 app.secret_key = b'\xb2_8\xcc\xfc\xec3n\xc5\x7f\x01-\xdal[\xc7'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///safaris.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///safaris.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["JWT_SECRET_KEY"] = b'\xb2_8\xcc\xfc\xec3n\xc5\x7f\x01-\xdal[\xc7'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)

@@ -47,7 +47,7 @@ class Paymentdetail(db.Model, SerializerMixin):
     
     payment_detail_id = db.Column(db.Integer, primary_key = True)
     card_name = db.Column(db.String)
-    card_number = db.Column(db.Integer)
+    card_number = db.Column(db.String)
     CVV = db.Column(db.Integer)
     expiry = db.Column(db.DateTime)
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.customer_id'))
