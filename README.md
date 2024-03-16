@@ -2,7 +2,7 @@
 ## About
 Tours & Travel Application
 
-## <a href='https://spartans-safaris.vercel.app/accommodations'><img src='https://cdn-icons-png.flaticon.com/128/3308/3308395.png' width=50px style='pointer-events: none;'/></a> <a href='https://spartans-safaris.onrender.com/accommodations'><img src='https://cdn-icons-png.flaticon.com/128/2906/2906274.png' width=50px style='pointer-events: none;'/></a>
+## <a href='https://spartans-safaris.vercel.app/accommodations' target='_blank'><img src='https://cdn-icons-png.flaticon.com/128/3308/3308395.png' width=50px style='pointer-events: none;'/></a> <a href='https://spartans-safaris.onrender.com/accommodations' target='_blank'><img src='https://cdn-icons-png.flaticon.com/128/2906/2906274.png' width=50px style='pointer-events: none;'/></a>
 WebSite ~ https://spartans-safaris.vercel.app/accommodations
 
 Server/API ~ https://spartans-safaris.onrender.com/accommodations
