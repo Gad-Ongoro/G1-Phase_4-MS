@@ -26,6 +26,7 @@ werkzeug = "*"
 datetime = "*"
 psycopg2-binary = "*"
 jinja2 = "*"
+sqlalchemy-serializer = "*"
 
 [dev-packages]
 
