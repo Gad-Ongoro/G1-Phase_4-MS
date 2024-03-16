@@ -5,25 +5,30 @@ import Accommodation_Reviews from './Accommodation_Reviews';
 
 function Accommodation() {
 	let params = useParams();
-	let {accommodations, setAccommodations, setBookings, spinners} = useContext(SafarisContext)
+	let {accommodations, setAccommodations, setBookings, spinners} = useContext(SafarisContext);
+
+	let accommodation = accommodations.filter((accomm) => {
+		return accomm.accommodation_id == params.accommodation_id
+	});
+
 
   	return (
 		<>
-			{accommodations[params.accommodation_id] !== undefined ?
+			{accommodation[0] !== undefined ?
 			<div className='accommodation_card mt-3 d-flex justify-content-around container-fluid' key={accommodations[params.accommodation_id - 1]}>
 				<div className=''>
-					<img src={accommodations[params.accommodation_id - 1].thumbnail} className='accommodation_thumbnail' alt='NA'></img>
+					<img src={accommodation[0].thumbnail} className='accommodation_thumbnail' alt='NA'></img>
 				</div>
 				<div className="accommodation_info">
-					<h3>{accommodations[params.accommodation_id - 1].name}</h3>
+					<h3>{accommodation[0].name}</h3>
 
 					<div className='accommodation_location d-flex'>
-						<h3 className='ml-5 p-0'>{accommodations[params.accommodation_id - 1].location}</h3>
+						<h3 className='ml-5 p-0'>{accommodation[0].location}</h3>
 						<img className='accommodation_location_img' src="https://cdn-icons-png.flaticon.com/128/10402/10402353.png" alt="NA" />
 					</div>
 
-					<h3>From Kes: {accommodations[params.accommodation_id - 1].price}</h3>
-					<h3>Rating: {accommodations[params.accommodation_id - 1].rating}</h3>
+					<h3>From Kes: {accommodation[0].price}</h3>
+					<h3>Rating: {accommodation[0].rating}</h3>
 
 					<button
 					type='button'
