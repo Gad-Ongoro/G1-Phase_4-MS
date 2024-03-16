@@ -124,7 +124,7 @@ with app.app_context():
 
     vacay_image = [
         'https://viutravel-cms-bucket.s3.eu-west-1.amazonaws.com/4025/conversions/Maasai-Mara-Thumbnail-2-thumbnail.webp',
-        'https://r-xx.bstatic.com/xdata/images/xphoto/300x320/304715650.jpg?k=d8ead3fd401ff9b065e167a9d48e8d62fc950b00343e8307ef77d9a77aec0bc0&o=',
+        'https://api.viutravel.com/assets/images/destinations/CAPETOWN.webp',
         'https://q-xx.bstatic.com/xdata/images/xphoto/300x320/136117132.jpg?k=6ed4213d8ed7b860bf9fbfbd91121e0dbbb6e1180ce0c3b45199ec072adfeb09&o=',
         'https://q-xx.bstatic.com/xdata/images/xphoto/300x320/182913308.jpg?k=e642d0a55d167e475c8e92d639c2767cbe09ec3aa074db13114547c4163c74cb&o=',
         'https://cf.bstatic.com/xdata/images/hotel/square600/51877516.webp?k=d03114530510097094f4c8e93ecb4a6342e3dfd50eb95ba58b3f93bd873df394&o=',

@@ -22,7 +22,7 @@ export default function Accommodations({accommodations, setAccommodations}) {
 				src='https://cdn-icons-png.flaticon.com/128/10336/10336582.png'
 				alt='NA'
 				onClick={() => {
-					fetch(`http://127.0.0.1:5000/accommodations/${accommodation.accommodation_id}`, {
+					fetch(`https://spartans-safaris.onrender.com/accommodations/${accommodation.accommodation_id}`, {
 						method: "PATCH",
 						headers: {
 							'Content-Type' : 'application/json'
@@ -38,7 +38,7 @@ export default function Accommodations({accommodations, setAccommodations}) {
 				<img 
 				className='delete-btn'
 				onClick = {()=>{
-					fetch(`http://127.0.0.1:5000/accommodations/${accommodation.accommodation_id}`,{
+					fetch(`https://spartans-safaris.onrender.com/accommodations/${accommodation.accommodation_id}`,{
 						method: 'DELETE'
 					}
 					)

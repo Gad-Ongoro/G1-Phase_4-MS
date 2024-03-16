@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 function CustomerBookings() {
     let [customer_bookings, setCustomerBookings] = useState([]);
     useEffect(() => {
-        fetch('http://127.0.0.1:5000//customer_bookings/2')
+        fetch('https://spartans-safaris.onrender.com/customer_bookings/2')
         .then(response => response.json())
         .then(data => {
             setCustomerBookings(data);

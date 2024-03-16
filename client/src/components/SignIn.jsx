@@ -34,7 +34,7 @@ export default function SignIn() {
 		e.preventDefault();
 		e.target.reset();
 
-		fetch("http://127.0.0.1:5000/login",{
+		fetch("https://spartans-safaris.onrender.com/login",{
 			method: "POST",
 			headers:{
 				'Content-Type': 'application/json'

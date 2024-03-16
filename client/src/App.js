@@ -30,7 +30,7 @@ function App() {
 	// READ customers/:id
 	useEffect(() => {
 		if (token_exists){
-			fetch(`http://127.0.0.1:5000/customers/${user_id}`)
+			fetch(`https://spartans-safaris.onrender.com/customers/${user_id}`)
 			.then(response => {
 				if (response.ok){
 					return(
@@ -49,7 +49,7 @@ function App() {
 	// READ customer_profiles/:id
 	useEffect(() => {
 		if (token_exists){
-			fetch(`http://127.0.0.1:5000/customer_profiles/${user_id}`, {
+			fetch(`https://spartans-safaris.onrender.com/customer_profiles/${user_id}`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				}
@@ -71,7 +71,7 @@ function App() {
 
 	// READ vacations
 	useEffect(() => {
-		fetch("http://127.0.0.1:5000/vacations", {
+		fetch("https://spartans-safaris.onrender.com/vacations", {
 			headers:{
 				Authorization: `Bearer ${localStorage.getItem('customer_auth_token')}`
 			}
@@ -86,7 +86,7 @@ function App() {
 
 	// READ accommodations
 	useEffect(() => {
-		fetch("http://127.0.0.1:5000/accommodations")
+		fetch("https://spartans-safaris.onrender.com/accommodations")
 		.then(response => response.json())
 		.then(data => {
 			setAccommodations(data)
@@ -98,7 +98,7 @@ function App() {
 	// READ reviews (Accommodation_Reviews)
 	useEffect(
 		() => {
-			fetch('http://127.0.0.1:5000/reviews')
+			fetch('https://spartans-safaris.onrender.com/reviews')
 			.then(response => response.json())
 			.then(data => setReviews(data))
 		},
@@ -110,7 +110,7 @@ function App() {
 	// UPDATE customer_profiles/:id
 	function updateCustomerProfile(inputs){
 		if (token_exists){
-			fetch(`http://127.0.0.1:5000/customer_profiles/${user_id}`, {
+			fetch(`https://spartans-safaris.onrender.com/customer_profiles/${user_id}`, {
 				method: 'PATCH',
 				headers: {
 					// Authorization: `Bearer ${token}`,

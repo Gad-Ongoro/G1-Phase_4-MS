@@ -36,7 +36,7 @@ export default function UserLog() {
 		e.preventDefault();
 		e.target.reset();
 
-		fetch("http://127.0.0.1:5000/customers",{
+		fetch("https://spartans-safaris.onrender.com/customers",{
 			method: "POST",
 			headers:{
 				'Content-Type': 'application/json'
