@@ -2,6 +2,12 @@
 ## About
 Tours & Travel Application
 
+## <img src='https://cdn-icons-png.flaticon.com/128/3308/3308395.png' width=50px /> <img src='https://cdn-icons-png.flaticon.com/128/2906/2906274.png' width=50px />
+WebSite ~ https://spartans-safaris.vercel.app/accommodations
+
+Server/API ~ https://spartans-safaris.onrender.com/accommodations
+
+
 ## User Stories
 * As a user, I can:
     * Create, update, or delete my account, stay logged in, logout
