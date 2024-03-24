@@ -20,6 +20,9 @@ python-dotenv = "*"
 pyjwt = "*"
 pillow = "*"
 flask-jwt-extended = "*"
+requests = "*"
+datetime = "*"
+pytz = "*"
 
 [dev-packages]
 
