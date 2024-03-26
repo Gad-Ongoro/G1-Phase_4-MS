@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { SafarisContext } from "../../App";
 
 // react-router-dom components
 import { useLocation, NavLink } from "react-router-dom";
@@ -33,6 +34,7 @@ import {
 } from "../../context";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
+  const { scrollToTop } = useContext(SafarisContext)
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentSidenav, whiteSidenav, darkMode, sidenavColor } = controller;
   const location = useLocation();
@@ -89,7 +91,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           />
         </Link>
       ) : (
-        <NavLink key={key} to={route}>
+        <NavLink key={key} to={`/dashboard${route}`}>
           <SidenavCollapse name={name} icon={icon} active={key === collapseName} />
         </NavLink>
       );
@@ -165,17 +167,15 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       />
       <List>{renderRoutes}</List>
       <MDBox p={2} mt="auto">
-        <MDButton
-          component="a"
-          href="https://www.creative-tim.com/product/material-dashboard-pro-react"
-          target="_blank"
-          rel="noreferrer"
-          variant="gradient"
-          color={sidenavColor}
-          fullWidth
-        >
-          upgrade to pro
-        </MDButton>
+        <NavLink to='/accommodations' className={'text-white'} onClick={scrollToTop}>
+          <MDButton
+            variant="gradient"
+            color={sidenavColor}
+            fullWidth
+          >
+            Home
+          </MDButton>
+        </NavLink>
       </MDBox>
     </SidenavRoot>
   );

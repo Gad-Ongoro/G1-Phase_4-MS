@@ -50,7 +50,7 @@ export default function Header({bookings, handleLogOut}) {
                         }                        
                     </p>
                     <p>
-                        <NavLink to='/account' className='text-white' exact>
+                        <NavLink to='/dashboard/dashboard' className='text-white' exact>
                             <img src='https://cdn-icons-png.flaticon.com/128/10307/10307911.png' alt='NA' className='profile_img'></img>
                         </NavLink>
                     </p>

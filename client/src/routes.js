@@ -22,6 +22,14 @@ const routes = [
   },
   {
     type: "collapse",
+    name: "Profile",
+    key: "profile",
+    icon: <Icon fontSize="small">person</Icon>,
+    route: "/profile",
+    component: <Profile />,
+  },
+  {
+    type: "collapse",
     name: "Tables",
     key: "tables",
     icon: <Icon fontSize="small">table_view</Icon>,
@@ -36,14 +44,14 @@ const routes = [
     route: "/billing",
     component: <Billing />,
   },
-  {
-    type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-    route: "/rtl",
-    component: <RTL />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "RTL",
+  //   key: "rtl",
+  //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
+  //   route: "/dashboard/rtl",
+  //   component: <RTL />,
+  // },
   {
     type: "collapse",
     name: "Notifications",
@@ -51,14 +59,6 @@ const routes = [
     icon: <Icon fontSize="small">notifications</Icon>,
     route: "/notifications",
     component: <Notifications />,
-  },
-  {
-    type: "collapse",
-    name: "Profile",
-    key: "profile",
-    icon: <Icon fontSize="small">person</Icon>,
-    route: "/profile",
-    component: <Profile />,
   },
   {
     type: "collapse",

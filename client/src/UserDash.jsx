@@ -38,7 +38,7 @@ import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "./
 import brandWhite from "./assets/images/logo-ct.png";
 import brandDark from "./assets/images/logo-ct-dark.png";
 
-export default function TestDash() {
+export default function UserDash() {
   const [controller, dispatch] = useMaterialUIController();
   const {
     miniSidenav,
@@ -53,16 +53,6 @@ export default function TestDash() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
-
-  // Cache for the rtl
-//   useMemo(() => {
-//     const cacheRtl = createCache({
-//       key: "rtl",
-//       stylisPlugins: [rtlPlugin],
-//     });
-
-//     setRtlCache(cacheRtl);
-//   }, []);
 
   // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
@@ -101,7 +91,7 @@ export default function TestDash() {
       }
 
       if (route.route) {
-        return <Route exact path={route.route} element={route.component} key={route.key} />;
+        return <Route exact path={`${route.route}`} element={route.component} key={route.key} />;
       }
 
       return null;
@@ -176,7 +166,7 @@ export default function TestDash() {
       {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/dashboard" />} />
+        <Route path="" element={<Navigate to="/dashboard" />} />
       </Routes>
     </ThemeProvider>
   );

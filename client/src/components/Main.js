@@ -8,7 +8,8 @@ import SignIn from './SignIn';
 import CustomerBookings from './CustomerBookings';
 import CustomerAccount from './CustomerAccount';
 import { SafarisContext } from '../App';
-import TestDash from '../TestDash';
+import UserDash from '../UserDash';
+import Header from './Header';
 
 export default function Main({vacations, accommodations, setAccommodations}) {
     let { spinners } = useContext(SafarisContext);
@@ -16,6 +17,7 @@ export default function Main({vacations, accommodations, setAccommodations}) {
 
     return (
     <main>
+        <Header></Header>
         <Routes>
             <Route path='/vacations' element={<Vacations vacations = {vacations}></Vacations>}></Route>
             <Route path='/accommodations' element={acc_loaded ? <Accommodations accommodations = {accommodations} setAccommodations={setAccommodations}></Accommodations> : spinners} exact></Route>

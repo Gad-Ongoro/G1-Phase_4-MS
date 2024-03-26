@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import Header from './components/Header';
+import UserDash from './UserDash';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import './App.css';
@@ -158,9 +159,10 @@ function App() {
 				token_exists, scrollToTop, customerProfile, updateCustomerProfile,
 				spinners, reviews
 				}}>
-
-				<Header bookings = {bookings} handleLogOut = {handleLogOut}></Header>
-				<Main vacations={vacations}  accommodations={accommodations}  setAccommodations={setAccommodations}></Main>
+				<Routes>
+					<Route path='/dashboard/*' exact element={<UserDash></UserDash>}></Route>
+					<Route path='/*' exact element={<Main vacations={vacations} accommodations={accommodations}  setAccommodations={setAccommodations}></Main>}></Route>
+				</Routes>
 				<Footer></Footer>
 
 			</SafarisContext.Provider>
