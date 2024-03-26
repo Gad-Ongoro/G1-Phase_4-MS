@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useState, useEffect } from "react";
 
 // react-github-btn
@@ -26,16 +11,16 @@ import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
 
 // @mui icons
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
+// import TwitterIcon from "@mui/icons-material/Twitter";
+// import FacebookIcon from "@mui/icons-material/Facebook";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDButton from "components/MDButton";
+import MDBox from "../../components/MDBox";
+import MDTypography from "../../components/MDTypography";
+import MDButton from "../../components/MDButton";
 
 // Custom styles for the Configurator
-import ConfiguratorRoot from "examples/Configurator/ConfiguratorRoot";
+import ConfiguratorRoot from "./ConfiguratorRoot";
 
 // Material Dashboard 2 React context
 import {
@@ -46,7 +31,7 @@ import {
   setFixedNavbar,
   setSidenavColor,
   setDarkMode,
-} from "context";
+} from "../../context";
 
 function Configurator() {
   const [controller, dispatch] = useMaterialUIController();
@@ -323,7 +308,7 @@ function Configurator() {
                 rel="noreferrer"
                 color="dark"
               >
-                <TwitterIcon />
+                {/* <TwitterIcon /> */}
                 &nbsp; Tweet
               </MDButton>
             </MDBox>
@@ -334,7 +319,7 @@ function Configurator() {
               rel="noreferrer"
               color="dark"
             >
-              <FacebookIcon />
+              {/* <FacebookIcon /> */}
               &nbsp; Share
             </MDButton>
           </MDBox>

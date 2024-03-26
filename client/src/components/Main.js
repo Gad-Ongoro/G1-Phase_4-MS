@@ -8,6 +8,7 @@ import SignIn from './SignIn';
 import CustomerBookings from './CustomerBookings';
 import CustomerAccount from './CustomerAccount';
 import { SafarisContext } from '../App';
+import TestDash from '../TestDash';
 
 export default function Main({vacations, accommodations, setAccommodations}) {
     let { spinners } = useContext(SafarisContext);
