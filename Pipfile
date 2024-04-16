@@ -27,6 +27,7 @@ datetime = "*"
 psycopg2-binary = "*"
 jinja2 = "*"
 sqlalchemy-serializer = "*"
+flask-mailman = "*"
 
 [dev-packages]
 
