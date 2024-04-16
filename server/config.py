@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 from flask import Flask, render_template, request, make_response, jsonify, session, abort
+from flask_mailman import Mail
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 from flask_migrate import Migrate
@@ -26,6 +27,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["JWT_SECRET_KEY"] = b'\xb2_8\xcc\xfc\xec3n\xc5\x7f\x01-\xdal[\xc7'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)
+
+app.config["MAIL_SERVER"] = "smtp.fastmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] =  True
+app.config["MAIL_USE_TLS"] = False
+app.config["MAIL_USERNAME"] = "gadongoro1@fastmail.com"
+app.config["MAIL_PASSWORD"] = "2jtws6lhufj736ay"
+app.config['MAIL_DEFAULT_SENDER'] = 'gadongoro1@fastmail.com'
+
+mail = Mail(app)
 
 app.json.compact = False
 
