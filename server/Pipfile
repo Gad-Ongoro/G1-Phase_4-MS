@@ -23,6 +23,8 @@ flask-jwt-extended = "*"
 requests = "*"
 datetime = "*"
 pytz = "*"
+flask-mail = "*"
+flask-mailman = "*"
 
 [dev-packages]
 

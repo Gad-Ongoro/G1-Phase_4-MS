@@ -8,6 +8,7 @@ from controllers.accommodations_controller import accommodation_bp
 from controllers.customer_profile_controller import cust_profile_bp
 from controllers.reviews_controller import reviews_bp
 from controllers.mpesa_exp import mpesa_exp_bp
+from controllers.email import mail_bp
 
 app.register_blueprint(newsletter_mail_bp)
 app.register_blueprint(customers_bp)
@@ -16,6 +17,7 @@ app.register_blueprint(accommodation_bp)
 app.register_blueprint(cust_profile_bp)
 app.register_blueprint(reviews_bp)
 app.register_blueprint(mpesa_exp_bp)
+app.register_blueprint(mail_bp)
 
 """ HOME """
 @app.route('/', methods=['get'])
