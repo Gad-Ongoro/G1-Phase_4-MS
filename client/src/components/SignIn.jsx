@@ -130,7 +130,7 @@ export default function SignIn() {
 					<img src={ showPassword ? "https://cdn-icons-png.flaticon.com/128/10308/10308728.png" : "https://cdn-icons-png.flaticon.com/128/3178/3178307.png"} onClick={toggle_show_password} alt="NA"></img>
 				</div>
 
-				<ReCAPTCHA className='recaptcha mt-4 m-2' sitekey="6LdeE1MpAAAAAEfpO0m3ZVvfjnAVGJU4-Nr0HpSq" onChange={onRecaptchaCheck}/>
+				<ReCAPTCHA className='recaptcha mt-4 m-2' sitekey="6LePsMgpAAAAAJhynm95qip9bv_GETF6ELsfCuZc" onChange={onRecaptchaCheck}/>
 				
 				<div className='log_inputs_div mt-4 m-2'>
 					<input ref={logSubmit} type='submit' className='log_submit' disabled={!recaptchaCheck} value={'Log In'}></input>
