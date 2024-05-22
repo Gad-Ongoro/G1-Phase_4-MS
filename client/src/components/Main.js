@@ -8,7 +8,6 @@ import SignIn from './SignIn';
 import CustomerBookings from './CustomerBookings';
 import CustomerAccount from './CustomerAccount';
 import { SafarisContext } from '../App';
-import UserDash from '../UserDash';
 import Header from './Header';
 
 export default function Main({vacations, accommodations, setAccommodations}) {

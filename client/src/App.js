@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import UserDash from './UserDash';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import './App.css';
@@ -160,7 +159,6 @@ function App() {
 				spinners, reviews
 				}}>
 				<Routes>
-					<Route path='/dashboard/*' exact element={<UserDash></UserDash>}></Route>
 					<Route path='/*' exact element={<Main vacations={vacations} accommodations={accommodations}  setAccommodations={setAccommodations}></Main>}></Route>
 				</Routes>
 				<Footer></Footer>

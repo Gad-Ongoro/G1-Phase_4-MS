@@ -8,16 +8,14 @@ import { BrowserRouter } from 'react-router-dom';
 import MouseMove from './components/MouseMove';
 
 // Material Dashboard 2 React Context Provider
-import { MaterialUIControllerProvider } from './context';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<BrowserRouter>
 		<React.StrictMode>
-			<MaterialUIControllerProvider>
-				<App />
-				<MouseMove></MouseMove>
-			</MaterialUIControllerProvider>
+			<App />
+			<MouseMove></MouseMove>
 		</React.StrictMode>
 	</BrowserRouter>
 );
