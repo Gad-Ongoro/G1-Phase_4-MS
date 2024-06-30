@@ -77,17 +77,17 @@ class ReviewDetailView(generics.RetrieveUpdateDestroyAPIView):
     
 # newsletter list create
 class NewsletterListCreateView(generics.ListCreateAPIView):
-    queryset = models.Newsletter.objects.all()
-    serializer_class = serializers.NewsletterSerializer
+    queryset = models.Newsletter_Mail.objects.all()
+    serializer_class = serializers.Newsletter_MailSerializer
     permission_classes = [AllowAny]
     
 # newsletter details
 class NewsletterDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = serializers.NewsletterSerializer
+    serializer_class = serializers.Newsletter_MailSerializer
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return models.Newsletter.objects.filter(user = self.request.user)
+        return models.Newsletter_Mail.objects.filter(user = self.request.user)
     
 # service list create
 class ServiceListCreateView(generics.ListCreateAPIView):
