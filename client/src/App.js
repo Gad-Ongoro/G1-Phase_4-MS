@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import AnimatedXPage from './components/AnimatedXPage';
+import SignUp from './components/Auth/SignUp';
+import SignIn from './components/Auth/SignIn';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import './App.css';
@@ -151,6 +154,7 @@ function App() {
 	}
 
   	return (
+			<AnimatedXPage>
     	<div className="App">
 			<SafarisContext.Provider value={{customer, user_id,
 				accommodations, setAccommodations,
@@ -159,12 +163,15 @@ function App() {
 				spinners, reviews
 				}}>
 				<Routes>
+					<Route path='/signup' element={<SignUp></SignUp>}></Route>
+					<Route path='/signin' element={<SignIn></SignIn>}></Route>
 					<Route path='/*' exact element={<Main vacations={vacations} accommodations={accommodations}  setAccommodations={setAccommodations}></Main>}></Route>
 				</Routes>
 				<Footer></Footer>
 
 			</SafarisContext.Provider>
     	</div>
+			</AnimatedXPage>
  	);
 }
 

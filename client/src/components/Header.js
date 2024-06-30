@@ -36,23 +36,25 @@ export default function Header({bookings, handleLogOut}) {
                     </NavLink>
                 </h4>
                 <div className='header-nav_1'>
-                    <h5>KES</h5>
-                    <img className='language_img' src='https://t-cf.bstatic.com/design-assets/assets/v3.109.0/images-flags/Gb@3x.png' alt='NA'></img>
-                    <img className='support_img' src='https://cdn-icons-png.flaticon.com/128/10309/10309127.png' alt='NA'></img>
+                    {/* <h5>KES</h5> */}
+                    {/* <img className='language_img' src='https://t-cf.bstatic.com/design-assets/assets/v3.109.0/images-flags/Gb@3x.png' alt='NA'></img> */}
+                    {/* <img className='support_img' src='https://cdn-icons-png.flaticon.com/128/10309/10309127.png' alt='NA'></img> */}
                     <p>
-                        <NavLink to='/my_bookings' className='text-white nav_links_2'><div className='bookings d-inline'>Manage Bookings <p className='booking_count'>{bookings}</p></div></NavLink>
+											{token_exists && <NavLink to='/my_bookings' className='text-white nav_links_2'><div className='bookings d-inline'>Manage Bookings <p className='booking_count'>{bookings}</p></div></NavLink>}
                     </p>
                     <p>
-                        {token_exists ?
-                            <NavLink to='/signin' className='text-white nav_links_2' exact onClick={handleLogOut}>Logout</NavLink>
-                            :
-                            <NavLink to='/signin' className='text-white nav_links_2' exact>Login</NavLink>
-                        }                        
+											{token_exists ?
+												<NavLink to='/signin' className='text-white nav_links_2' exact onClick={handleLogOut}>Logout</NavLink>
+												:
+												<NavLink to='/signin' className='text-white nav_links_2' exact>Login</NavLink>
+											}
                     </p>
                     <p>
-                        <NavLink to='/dashboard/dashboard' className='text-white' exact>
-                            <img src='https://cdn-icons-png.flaticon.com/128/10307/10307911.png' alt='NA' className='profile_img'></img>
-                        </NavLink>
+											{ token_exists &&
+											<NavLink to='/dashboard/dashboard' className='text-white' exact>
+													<img src='https://cdn-icons-png.flaticon.com/128/10307/10307911.png' alt='NA' className='profile_img'></img>
+											</NavLink>
+											}
                     </p>
                 </div>
             </div>
@@ -80,7 +82,7 @@ export default function Header({bookings, handleLogOut}) {
 
                 <div className='service_div'>                    
                     <a href='https://www.uber.com' className='nav_links_2' target='_blank' rel="noreferrer">
-                        Taxis/Uber
+                      Taxis/Uber
                     </a>                   
                 </div>
             </div>
@@ -109,4 +111,4 @@ export default function Header({bookings, handleLogOut}) {
             </div>
         </header>
     )
-}
+};

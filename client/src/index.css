@@ -374,12 +374,6 @@ main .socials img:hover{
 
 
 /* USER_LOG */
-form.log_form{
-	background-color: rgb(20, 0, 100);
-	border-radius: 15px;
-	width: 60vw;
-}
-
 .log_form input{
 	width: 25vw;
 	height: 31px;
@@ -419,7 +413,6 @@ form.log_form{
 }
 
 .log_form input[type="submit"]{
-	color: white;
 	letter-spacing: 1.2px;
 	font-weight: bold;
 	background-color: rgb(8, 191, 133);

@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import { NavLink } from 'react-router-dom';
+import AnimatedXPage from './AnimatedXPage';
 import TopAccommodations from './TopAccommodations';
 import FilterHotelByLocation from './FilterHotelByLocation';
 import { SafarisContext } from '../App';
@@ -71,6 +72,7 @@ export default function Accommodations({accommodations, setAccommodations}) {
 	});
 
   	return (
+		<AnimatedXPage>
     	<div className='hot_deals container'>
 
 			<div className='super_container container-fluid d-flex justify-content-center m-0'>
@@ -91,5 +93,6 @@ export default function Accommodations({accommodations, setAccommodations}) {
 				{accommodation_cards}
 			</div>
     	</div>
+		</AnimatedXPage>
   	)
 }
