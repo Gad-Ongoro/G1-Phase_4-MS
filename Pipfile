@@ -28,6 +28,17 @@ psycopg2-binary = "*"
 jinja2 = "*"
 sqlalchemy-serializer = "*"
 flask-mailman = "*"
+django = "*"
+djangorestframework = "*"
+django-filter = "*"
+environs = "*"
+uuid = "*"
+asgiref = "*"
+django-cors-headers = "*"
+djangorestframework-simplejwt = "*"
+pytz = "*"
+sqlparse = "*"
+pillow = "*"
 
 [dev-packages]
 
