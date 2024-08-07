@@ -25,6 +25,10 @@ datetime = "*"
 pytz = "*"
 flask-mail = "*"
 flask-mailman = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+honcho = "*"
+gunicorn = "*"
 
 [dev-packages]
 
