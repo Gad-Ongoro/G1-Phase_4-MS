@@ -1,11 +1,12 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from . import models
 
 # user serializer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CustomUser
-        fields = ['user_id', 'first_name', 'last_name', 'username', 'email', 'password', 'role']
+        fields = ['id',  'first_name', 'last_name', 'email', 'password', 'date_joined', 'updated_at']
         extra_kwargs = {'password': {'write_only': True}}
         
     def create(self, validated_data):
@@ -15,6 +16,22 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
+class LogoutUserSerializer(serializers.Serializer):
+    refresh_token=serializers.CharField()
+    default_error_message = {
+        'bad_token': ('Token is expired or invalid')
+    }
+    def validate(self, attrs):
+        self.token = attrs.get('refresh_token')
+        return attrs
+
+    def save(self, **kwargs):
+        try:
+            token=RefreshToken(self.token)
+            token.blacklist()
+        except TokenError:
+            return self.fail('bad_token')
     
 
 # profile serializer

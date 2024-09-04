@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, status
+from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from . import models
 from . import serializers
@@ -24,8 +25,19 @@ class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return models.CustomUser.objects.filter(user_id = self.kwargs['user_id'])
+        return models.CustomUser.objects.filter(id=self.request.user.id)
     
+# logout
+class LogoutApiView(generics.GenericAPIView):
+    serializer_class = serializers.LogoutUserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer=self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 # profiles list
 class ProfileListView(generics.ListAPIView):
     serializer_class = serializers.ProfileSerializer

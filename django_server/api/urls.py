@@ -6,6 +6,9 @@ urlpatterns = [
     path('users/', views.UserListView.as_view(), name='users_list'),
     path('users/<uuid:pk>/', views.UserDetailView.as_view(), name='user_detail'),
     
+    # logout
+    path('users/logout/', views.LogoutApiView.as_view(), name='user_logout'),
+
     path('profiles/', views.ProfileListView.as_view(), name='profiles_list'),
     path('profiles/<uuid:pk>/', views.ProfileDetailView.as_view(), name='profile_detail'),
     
