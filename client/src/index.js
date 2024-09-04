@@ -5,16 +5,16 @@ import './media_screens.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import AppContext from './services/utils';
 import MouseMove from './components/MouseMove';
-
-// Material Dashboard 2 React Context Provider
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<BrowserRouter>
 		<React.StrictMode>
-			<App />
+			<AppContext>
+				<App />
+			</AppContext>
 			<MouseMove></MouseMove>
 		</React.StrictMode>
 	</BrowserRouter>
