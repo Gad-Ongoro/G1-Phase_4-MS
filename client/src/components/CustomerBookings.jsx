@@ -1,19 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 function CustomerBookings() {
     let [customer_bookings, setCustomerBookings] = useState([]);
-    useEffect(() => {
-        fetch('https://spartans-safaris.onrender.com/customer_bookings/2')
-        .then(response => response.json())
-        .then(data => {
-            setCustomerBookings(data);
-            console.log(data[0]);
-        })
-    },
-    [])
 
     const booking_card = customer_bookings.map((customer_booking) => {
-        return(
+        return (
             <div className='row gap-3' key={customer_booking.booking_id}>
                 <div className='accommodation_bookings col d-flex gap-5'>
                     <img src={`${customer_booking.accommodation.thumbnail}`} alt="NA" width={300}></img>

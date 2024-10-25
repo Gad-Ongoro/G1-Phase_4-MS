@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import GridLoader from './Loaders/GridLoader';
 import { SafarisContext } from '../App';
+import { useAppContext } from '../services/utils';
 
 function CustomerInfo() {
-	let {customer, scrollToTop, customerProfile, spinners} = useContext(SafarisContext);
+	const { scrollToTop } = useAppContext();
+	let {customer, customerProfile} = useContext(SafarisContext);
 	let [details_loaded, setDetailsLoaded] = useState(false);
 	console.log(customerProfile);
 
@@ -56,11 +59,11 @@ function CustomerInfo() {
 					<h6 className='mx-3'>{customerProfile.account_type}</h6>
 				</div>
 			</div>
-	</>) : spinners;
+	</>) : <GridLoader></GridLoader>;
 	
   	return (
     	<div className='container account_details'>
-			{details_loaded ? customer_information : spinners}
+			{details_loaded ? customer_information : <GridLoader></GridLoader>}
 			{details_loaded && <button type='button' className=''>
 				<NavLink to='/account/settings' exact className={'text-decoration-none'} onClick={scrollToTop}>Edit Details</NavLink>
 			</button>}

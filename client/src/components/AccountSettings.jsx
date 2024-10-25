@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import GridLoader from './Loaders/GridLoader';
 import { SafarisContext } from '../App';
 
 function AccountSettings() {
-	let {customer, scrollToTop, token_exists, updateCustomerProfile, spinners} = useContext(SafarisContext);
+	let {customer, scrollToTop, token_exists, updateCustomerProfile} = useContext(SafarisContext);
 	let [details_loaded, setDetailsLoaded] = useState(false);
 	let [inputs, setInputs] = useState({});
 
@@ -88,12 +88,11 @@ function AccountSettings() {
 			</div>
 			<button type="submit">Update</button>
 		</form>
-	</>) : spinners;
+	</>) : <GridLoader></GridLoader>;
 
 	return (
 		<div>
-			{details_loaded ? customer_information : spinners}
-			{/* {!token_exists && <NavLink to={'/signin'}>Login</NavLink>} */}
+			{details_loaded ? customer_information : <GridLoader></GridLoader>}
 		</div>
 	);
 };

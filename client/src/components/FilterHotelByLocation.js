@@ -1,11 +1,11 @@
-import React, {useContext, useRef} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import { NavLink } from 'react-router-dom';
-import { SafarisContext } from '../App';
+import { useAppContext } from '../services/utils';
 
 function FilterHotelByLocation() {
+	const { accommodationsAndHotels } = useAppContext();
 	let carousel_track = useRef();
-	let slide_btn_left = useRef();
-	let slide_btn_right = useRef();
+	let [ searchTerm, setSearchTerm ] = useState('');
 
 	function handleLeftBtnClick(e){
 		carousel_track.current.style.cssText = `
@@ -21,10 +21,8 @@ function FilterHotelByLocation() {
 		`
 	};
 
-
-	let {searchTerm, accommodations} = useContext(SafarisContext);
-    // filter by location
-	let filtered_results = accommodations.filter((accommodation)=>{
+  // filter by location
+	let filtered_results = accommodationsAndHotels.filter((accommodation)=>{
 		return(
 			accommodation.location.toLowerCase().includes(searchTerm.toLowerCase())
 		)
@@ -38,7 +36,7 @@ function FilterHotelByLocation() {
 				<p className='m-0 text-center'>{accommodation.name}</p>
 				<p className='m-0 text-center'>From Kes: {accommodation.price}</p>
 
-				<NavLink to={`/accommodations/${accommodation.accommodation_id}`} style={{textDecoration: "none"}}>
+				<NavLink to={`/accommodations/${accommodation.id}`} style={{textDecoration: "none"}}>
 					<button className='d-block border-1 border-primary rounded-pill'>Book Now</button>
 				</NavLink>
 			</div>
@@ -47,11 +45,7 @@ function FilterHotelByLocation() {
 
 	return (
 		<>
-			<img ref={slide_btn_left} className='slide_btn_left' onClick={handleLeftBtnClick} src='https://cdn-icons-png.flaticon.com/128/5791/5791265.png' alt='NA'></img>
-			<div ref={carousel_track} className='tracker d-flex gap-5'>
-				{display_cards}
-			</div>
-			<img ref={slide_btn_right} className='slide_btn_right' onClick={handleRightBtnClick} src='https://cdn-icons-png.flaticon.com/128/5791/5791265.png' alt='NA'></img>
+			{display_cards}
 		</>
  	)
 }

@@ -1,11 +1,13 @@
 import React from 'react';
 import AnimatedXPage from './AnimatedXPage';
+import { useAppContext } from '../services/utils';
 
-export default function Vacations({vacations}) {
+export default function Vacations() {
+	const { vacations } = useAppContext();
 
 	let vacay_cards = vacations.map((vacay) => {
 		return(
-			<div className='safari_card mt-2' key={vacay.vacation_id}>
+			<div className='safari_card mt-2' key={vacay.id}>
 				<img src={vacay.thumbnail} className='accommodation_thumbnail' alt='NA'></img>
 				<p>{vacay.name}</p>
 				<p>{vacay.location}</p>
@@ -26,4 +28,4 @@ export default function Vacations({vacations}) {
     	</div>
 		</AnimatedXPage>
   	)
-}
+};

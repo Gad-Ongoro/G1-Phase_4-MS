@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+python-dotenv = "*"
+dj-database-url = "*"
+gunicorn = "*"
+psycopg = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
+django-cors-headers = "*"
+djangorestframework-simplejwt = "*"
+pillow = "*"
+faker = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"

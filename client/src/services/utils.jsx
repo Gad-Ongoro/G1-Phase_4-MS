@@ -13,23 +13,26 @@ export default function AppContext({children}){
   const refreshToken = localStorage.getItem('refresh');
   const user_id = accessToken !== null || undefined ? jwtDecode(accessToken).user_id : null;
 	const [ user, setUser ] = useState({});
+	const [ vacations, setVacations ] = useState([]);
+	const [ accommodationsAndHotels, setAccommodationsAndHotels ] = useState([]);
 	let [ auth, setAuth ] = useState(false);
 	let [ inputs, setInputs ] = useState({});
 	let [ loading, setLoading ] = useState(false);
 
-	// user fetcher
+	// GET user
   async function fetchUser() {
 		try {
 				const res = await api.get(`users/${user_id}/`);
 			 if (res.status === 200) {
 				 	setUser(res.data);
-			 }
+			 	}
 		}
 		catch (error) {
 			console.error(error);
 		}
 	};
 
+	// auth check
 	useEffect( () => {
     if (accessToken) {
       setAuth(true);
@@ -56,7 +59,7 @@ export default function AppContext({children}){
 		} catch (error) {
 			console.log(error);
 		} finally {
-			// setInputs({});
+			setInputs({});
 			setLoading(false);
 		}
 	};
@@ -112,15 +115,58 @@ export default function AppContext({children}){
 		navigate('/signin');
 	};
 
+	// scroll to top
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	}
+
+	// GET Vacations
+	const getVacations = async () => {
+		try {
+			const res = await api.get('services/');
+			if (res.status === 200) {
+				const data = res.data;
+				const vacs = data.filter(record => record.service_type === "Vacations");
+				setVacations(vacs);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
+	// GET accommodations & Hotels
+	const getAccommodationsAndHotels = async () => {
+		try {
+			const res = await api.get('services/');
+			if (res.status === 200) {
+				const data = res.data;
+				const accomAndHotels = data.filter(record => record.service_type === "Accommodations & Hotels");
+				setAccommodationsAndHotels(accomAndHotels);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
+	useEffect(() => {
+		getVacations();
+		getAccommodationsAndHotels();
+	}, [])
+
 	const contextValues = {
 		auth,
 		user,
-		loading,
+		loading, scrollToTop,
 		navigate,
 		handleInputChange,
 		handleSignUp,
 		handleLogin,
 		handleLogout,
+		vacations, setVacations,
+		accommodationsAndHotels, setAccommodationsAndHotels,
 	}
 
 	return (

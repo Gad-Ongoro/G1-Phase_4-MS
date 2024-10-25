@@ -33,7 +33,7 @@ app.config["MAIL_PORT"] = 465
 app.config["MAIL_USE_SSL"] =  True
 app.config["MAIL_USE_TLS"] = False
 app.config["MAIL_USERNAME"] = "gadongoro1@fastmail.com"
-app.config["MAIL_PASSWORD"] = "2jtws6lhufj736ay"
+app.config["MAIL_PASSWORD"] = "password"
 app.config['MAIL_DEFAULT_SENDER'] = 'gadongoro1@fastmail.com'
 
 mail = Mail(app)

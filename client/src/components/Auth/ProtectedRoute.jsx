@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import GridLoader from "../Loaders/GridLoader";
 import api from "../../api";
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
 import { useState, useEffect } from "react";
@@ -48,7 +49,7 @@ function ProtectedRoute({ children }) {
     };
 
     if (isAuthorized === null) {
-        return <div>Loading...</div>;
+        return <GridLoader></GridLoader>;
     }
 
     return isAuthorized ? children : <Navigate to="/login" />;

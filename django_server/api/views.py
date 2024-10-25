@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly
 from . import models
 from . import serializers
 
 # Create your views here.
 # user create
 class UserCreateView(generics.CreateAPIView):
-    queryset = models.CustomUser.objects.all()
+    queryset = models.User.objects.all()
     serializer_class = serializers.UserSerializer
 
     def create(self, request, *args, **kwargs):
@@ -16,7 +16,7 @@ class UserCreateView(generics.CreateAPIView):
     
 # user list
 class UserListView(generics.ListAPIView):
-    queryset = models.CustomUser.objects.all()
+    queryset = models.User.objects.all()
     serializer_class = serializers.UserSerializer
     
 # user details
@@ -25,7 +25,7 @@ class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
-        return models.CustomUser.objects.filter(id=self.request.user.id)
+        return models.User.objects.filter(id=self.request.user.id)
     
 # logout
 class LogoutApiView(generics.GenericAPIView):
@@ -105,12 +105,12 @@ class NewsletterDetailView(generics.RetrieveUpdateDestroyAPIView):
 class ServiceListCreateView(generics.ListCreateAPIView):
     queryset = models.Service.objects.all()
     serializer_class = serializers.ServiceSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     
 # service details
 class ServiceDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.ServiceSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     
     def get_queryset(self):
         return models.Service.objects.filter(user = self.request.user)
